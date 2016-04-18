@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby "2.2.3"
+ruby "2.3.0"
 
 gem 'rails', '4.2.6'
 gem 'sass-rails', '~> 5.0'
@@ -10,6 +10,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem "paperclip", "~> 5.0.0.beta1"
+gem "paperclip-dropbox", ">= 1.1.7"
 
 group :production do
 	gem 'pg'
