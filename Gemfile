@@ -25,6 +25,10 @@ end
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'guard'
+  gem 'guard-sass'
+  gem 'guard-livereload'
+  gem 'guard-rails'
 end
 
 group :doc do
