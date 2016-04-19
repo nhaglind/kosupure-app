@@ -46,12 +46,13 @@ body {
     font-size: 17px;
     margin: 2px;
   }
-  p {
-    font-size: 15px;
-    margin: 0px;
-  }
 }
 
 .wrap {
   min-height: calc(100vh - 100px);
+}
+
+.bold-price {
+  font-weight: bold;
+  font-size: 20px;
 }
