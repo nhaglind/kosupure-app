@@ -1,5 +1,7 @@
 class Listing < ActiveRecord::Base
-	validates :name, :description, :price, presence:true
+	validates :name, :description, presence: true
+  validates :price, presence:true,
+    numericality: true
 
   if Rails.env.development?
     has_attached_file :image, :styles => { :medium => "200x", :thumb => "100x100>" }, :default_url => "default.jpg"
