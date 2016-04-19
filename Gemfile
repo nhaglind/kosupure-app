@@ -29,6 +29,7 @@ group :development do
   gem 'guard-sass'
   gem 'guard-livereload'
   gem 'guard-rails'
+  gem 'rack-livereload'
 end
 
 group :doc do
