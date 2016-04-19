@@ -1,29 +1,32 @@
 <div class=”center”>
-
-    <% @listings.each do |listing| %>
-      <div class="row">
-        <div class="col-md-2">
-          <div class="thumbnail">
-            <%= image_tag listing.image.url %>
-          </div>
-        </div>
-        <div class="col-md-10">
-            <div class="caption">
-              <h3><%= link_to listing.name, listing %></h3>
-              <div class="bold-price">
-                <p>
-                  <%= number_to_currency(listing.price, locale: "en") %>
-                </p>
-              </div>
-              <p><%= "Sold by #{listing.user.name}" %></p>
-              <!-- <%= link_to 'Show', listing, class: "btn btn-link" %> -->
-              <%= link_to 'Edit', edit_listing_path(listing), class: "btn btn-link" %>
-              <%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link" %>
-            </div>
-        </div>
+  <% @listings.each do |listing| %>
+  <div class="row">
+    <div class="col-md-2">
+      <div class="thumbnail">
+        <%= link_to image_tag(listing.image.url), listing %>
       </div>
-      
-    <% end %>
+    </div>
+    <div class="col-md-10">
+      <div class="caption">
+        <h3><%= link_to listing.name, listing %></h3>
+        <div class="bold-price">
+          <p>
+            <%= number_to_currency(listing.price, locale: "en") %>
+          </p>
+        </div>
+        <p><%= "Sold by #{listing.user.name}" %></p>
+        <!-- <%= link_to 'Show', listing, class: "btn btn-link" %> -->
+        <% if (user_signed_in?) && (current_user == listing.user) %>
+        <%= link_to 'Edit', edit_listing_path(listing), class: "btn btn-link" %>
+        <%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link" %>
+        <% end %>
+      </div>
+    </div>
   </div>
+  
+  <% end %>
 </div>
+</div>
+<% if (user_signed_in?) %>
 <%= link_to "New Listing", new_listing_path, class: "btn btn-link" %>
+<% end %>
