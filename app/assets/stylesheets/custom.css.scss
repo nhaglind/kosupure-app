@@ -21,6 +21,30 @@ body {
   color: #f48fb1;
 }
 
+.btn-primary {
+  background-color: #f48fb1;
+  border-color: #eee;
+}
+
+.btn-primary:hover {
+  background-color: #AD1457;
+  border-color: #eee;
+}
+
+.btn-primary:active, .btn-primary.active, .open > .btn-primary.dropdown-toggle {
+  background-color: #AD1457;
+  border-color: #eee;
+}
+
+.btn-primary:active:hover, .btn-primary:active:focus, .btn-primary:active.focus, .btn-primary.active:hover, .btn-primary.active:focus, .btn-primary.active.focus, .open > .btn-primary.dropdown-toggle:hover, .open > .btn-primary.dropdown-toggle:focus, .open > .btn-primary.dropdown-toggle.focus {
+  background-color: #AD1457;
+  border-color: #eee;
+}
+.btn-primary:focus, .btn-primary.focus {
+  background-color: #AD1457;
+  border-color: #eee;
+}
+
 .center {
   text-align: center;
 }
