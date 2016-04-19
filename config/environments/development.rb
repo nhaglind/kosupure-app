@@ -41,4 +41,7 @@ Rails.application.configure do
 
   # LiveReload config
   config.middleware.insert_after ActionDispatch::Static, Rack::LiveReload
+
+   # Required for Devise gem
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 end
