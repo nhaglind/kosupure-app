@@ -9,10 +9,18 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'bootstrap-sass', '~> 3.3.6'
-gem "paperclip", "~> 5.0.0.beta1"
-gem "paperclip-dropbox", ">= 1.1.7"
+
+# image upload
+gem "carrierwave", github: "carrierwaveuploader/carrierwave"
+gem "mini_magick"
+
+# secrets
 gem "figaro"
+
+# user auth
 gem 'devise'
+
+# payment
 gem 'stripe'
 
 # database
