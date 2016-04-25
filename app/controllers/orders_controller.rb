@@ -33,13 +33,19 @@ class OrdersController < ApplicationController
     begin
       charge = Stripe::Charge.create(
         :amount => (@listing.price * 100).floor,
-        :currency => "usd", 
+        :currency => "usd",
         :card => token
         )
       flash[:notice] = "Thanks for ordering!"
-    rescue Strip::CardError => e
-      flash[:danger] =e.message
+    rescue Stripe::CardError => e
+      flash[:danger] = e.message
     end
+
+    transfer = Stripe::Transfer.create(
+      :amount => (@listing.price * 100).floor,
+      :currency => "usd",
+      :recipient => @seller.recipient
+      )
 
     respond_to do |format|
       if @order.save
@@ -51,7 +57,6 @@ class OrdersController < ApplicationController
       end
     end
   end
-
 
   private
     # Use callbacks to share common setup or constraints between actions.
