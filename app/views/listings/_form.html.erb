@@ -29,6 +29,10 @@
     <%= f.text_field :price, class: "form-control" %>
   </div>
   <div class="form-group">
+    <%= f.label :quantity, "Quantity of Items"%>
+    <%= f.text_field :quantity, class: "form-control" %>
+  </div>
+  <div class="form-group">
     <%= f.label :images, "Upload images:"%>
     <%= f.file_field :images, multiple: true, class: "form-control" %>
   </div>

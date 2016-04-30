@@ -22,6 +22,7 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
     @listing = Listing.find(params[:listing_id])
     @seller = @listing.user
+    @listing.quantity -= 1
 
     @order.listing_id = @listing.id
     @order.buyer_id = current_user.id
