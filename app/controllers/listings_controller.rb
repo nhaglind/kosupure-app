@@ -18,6 +18,11 @@ class ListingsController < ApplicationController
   def show
   end
 
+  # Reduce
+  def reduce
+    @listing.quantity -= 1
+  end
+  
   # GET /listings/new
   def new
     @listing = Listing.new

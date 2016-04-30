@@ -22,7 +22,7 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
     @listing = Listing.find(params[:listing_id])
     @seller = @listing.user
-    @listing.quantity -= 1
+    @listing.decrement!(:quantity, 1)
 
     @order.listing_id = @listing.id
     @order.buyer_id = current_user.id
@@ -52,10 +52,15 @@ class OrdersController < ApplicationController
       if @order.save
         format.html { redirect_to root_url }
         format.json { render action: 'show', status: :created, location: @order }
+
       else
         format.html { render action: 'new' }
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
+    end
+
+    if @listing.quantity == 0
+      @listing.destroy
     end
   end
 
