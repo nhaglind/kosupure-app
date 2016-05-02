@@ -26,10 +26,6 @@ gem 'stripe'
 # database
 gem 'pg'
 
-group :production do
-	gem 'rails_12factor'
-end
-
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
@@ -38,6 +34,19 @@ group :development do
   gem 'guard-livereload'
   gem 'guard-rails'
   gem 'rack-livereload'
+end
+
+group :development, :test do
+	gem 'rspec-rails'
+end
+
+group :test do
+	gem 'capybara'
+	gem 'factory_girl_rails'
+end
+
+group :production do
+	gem 'rails_12factor'
 end
 
 group :doc do
