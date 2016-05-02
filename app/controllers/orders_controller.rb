@@ -22,7 +22,6 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
     @listing = Listing.find(params[:listing_id])
     @seller = @listing.user
-    @listing.decrement!(:quantity, 1)
 
     @order.listing_id = @listing.id
     @order.buyer_id = current_user.id
@@ -59,9 +58,7 @@ class OrdersController < ApplicationController
       end
     end
 
-    if @listing.quantity == 0
-      @listing.destroy
-    end
+    @order.decrease_quantity
   end
 
   private
@@ -72,6 +69,6 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:address, :city, :state)
+      params.require(:order).permit(:address, :city, :state, :ordered_amount)
     end
 end
