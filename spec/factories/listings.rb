@@ -6,6 +6,7 @@ FactoryGirl.define do
 		f.description { Faker::Hipster.sentence }
 		f.price { Faker::Commerce.price }
 		f.quantity { Faker::Number.between(10,20).abs }
+		f.trade { Faker::Boolean.boolean }
 		# f.user { Faker::Name.name }
 
 		factory :listing_with_order do 

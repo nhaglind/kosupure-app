@@ -36,7 +36,11 @@
     <%= f.label :images, "Upload images:"%>
     <%= f.file_field :images, multiple: true, class: "form-control" %>
   </div>
-<br>
+  <div class="form-group">
+    <%= f.label :trade, "Mark this box if you accept trades for this listing. Note: This will broadcast your email."%>
+    <%= f.check_box :trade, {}, 'true', 'false' %>
+  </div>
+
   <% if current_user.recipient.blank? %>
     <br>
     <h1>Bank Account Information</h1>
