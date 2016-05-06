@@ -10,6 +10,10 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'bootstrap-sass', '~> 3.3.6'
 
+# pagination
+gem 'will_paginate', '~> 3.1.0'
+gem 'will_paginate-bootstrap'
+
 # image upload
 gem "carrierwave", github: "carrierwaveuploader/carrierwave"
 gem "mini_magick"

@@ -11,10 +11,6 @@ body {
   background-image: url('https://www.dropbox.com/s/bwh8hb5hm9e9rh8/anime_banner.jpg?raw=1');
 }
 
-.accepts_trades {
-  background-image: url('https://www.dropbox.com/s/hr04f58uh8pcowb/accept_trades.jpg?raw=1');
-  background-size: cover;
-}
 .jumbotron > h1 {
    color: #31294E;
 }
@@ -22,13 +18,10 @@ body {
    color: #F492C2;
 }
 
-footer {
-  padding: 20px;
-}
 
-footer > div > span {
-  color: #F492C2;
-}
+
+// Nav 
+
 .navbar-default .navbar-brand {
   font-family: guardian-egyptt, georgia, serif;
   font-weight: 400;
@@ -42,6 +35,8 @@ footer > div > span {
   font-weight: 100;
   color: #f48fb1;
 }
+
+// Buttons
 
 .btn-primary {
   background-color: #f48fb1;
@@ -105,7 +100,6 @@ footer > div > span {
 
 // Show Page
 
-
 .list-group {
   list-style: none;
 }
@@ -114,4 +108,25 @@ footer > div > span {
   background-color: #f48fb1;
   border-radius: 0px;
   padding: 5px;
+}
+
+.accepts_trades {
+  background-image: url('https://www.dropbox.com/s/hr04f58uh8pcowb/accept_trades.jpg?raw=1');
+  background-size: cover;
+}
+
+// Reduce this to a single class
+
+body > div > div > div > div > div > div:nth-child(2) {
+  margin-top: 5px;
+}
+
+// Footer 
+
+footer {
+  padding: 20px;
+}
+
+footer > div > span {
+  color: #F492C2;
 }
