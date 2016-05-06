@@ -104,10 +104,18 @@ body {
   list-style: none;
 }
 
+.list-group-item {
+  border: 1px solid #EFC7D7
+}
+
 .badge {
   background-color: #f48fb1;
   border-radius: 0px;
   padding: 5px;
+}
+
+.pink-border {
+  border: 1px solid #EFC7D7;
 }
 
 .accepts_trades {
@@ -115,10 +123,28 @@ body {
   background-size: cover;
 }
 
-// Reduce this to a single class
+.show-description {
+  margin-top: 10px;
+  font-family: inherit;
+  font-size: .9em !important;
+}
+
+// Reduce these to single classes
 
 body > div > div > div > div > div > div:nth-child(2) {
   margin-top: 5px;
+}
+
+body > div > div > div > div > div > div:nth-child(2) > p > span {
+  background-color: #EBB0C4;
+  display: block;
+  padding: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1em;
+}
+
+body > div > div > div > div > div > div:nth-child(2) {
+  margin-top: 0px;
 }
 
 // Footer 

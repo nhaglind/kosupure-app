@@ -2,7 +2,12 @@
   <div class="panel-body">
     <div class="row">
       <div class="col-md-6">
-        <%= image_tag @listing.images[0].url, class: "img-responsive" %>
+        <%= image_tag @listing.images[0].url, class: "img-responsive pink-border" %>
+        <div class="row">
+          <div class="col-md-6">
+            <p class="show-description">This can be date posted, perhaps?</p>
+          </div>
+        </div>
       </div>
       <div class="col-md-6">
         <p><span class="label label-default"><%= @listing.name%></span></p>
@@ -12,10 +17,8 @@
           <li class="list-group-item">Seller: <%= @listing.user.name %></li>
           <li class="list-group-item">Description: <%= @listing.description %></li>
           <hr>
-
           <%#= if @listing.trade == 0 %>
           <div class="jumbotron accepts_trades" alt="accepts trades"></div>
-
         </ul>
         <%= link_to "Buy It Now", new_listing_order_path(@listing), class: "btn btn-primary", data: { no_turbolink: true}  %>
       </div>
