@@ -1,31 +1,29 @@
-## Synopsis
+== README
 
-Kosupure, the mystery remains.
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-## Code Example
+I'll get to this evenutally.
 
-Show what the library does as concisely as possible, developers should be able to figure out **how** your project solves their problem by looking at the code example. Make sure the API you are showing off is obvious, and that your code is short and concise.
+Things you may want to cover:
 
-## Motivation
+* Ruby version
 
-A short description of the motivation behind the creation and maintenance of the project. This should explain **why** the project exists.
+* System dependencies
 
-## Installation
+* Configuration
 
-Provide code examples and explanations of how to get the project.
+* Database creation
 
-## API Reference
+* Database initialization
 
-Depending on the size of the project, if it is small and simple enough the reference docs can be added to the README. For medium size to larger projects it is important to at least provide a link to where the API reference docs live.
+* How to run the test suite
 
-## Tests
+* Services (job queues, cache servers, search engines, etc.)
 
-To run tests, we're utilizing [Rspec] (http://rspec.info/). Current factories includes creating users, posting listings, and taking orders. To run simply use $ rspec.
+* Deployment instructions
 
-## Contributors
+* ...
 
-Currently only two devs, but brutal criticism and feedback from one other.
-
-## License
-
-A short snippet describing the license (MIT, Apache, etc.)
+Please feel free to use a different markup language if you do not plan to run
+<tt>rake doc:app</tt>.
