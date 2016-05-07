@@ -10,6 +10,9 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'bootstrap-sass', '~> 3.3.6'
 
+# active admin
+gem 'activeadmin', github: 'activeadmin'
+
 # pagination
 gem 'will_paginate', '~> 3.1.0'
 gem 'will_paginate-bootstrap'
@@ -29,6 +32,7 @@ gem 'stripe'
 
 # database
 gem 'pg'
+
 
 group :development do
   gem 'web-console', '~> 2.0'
