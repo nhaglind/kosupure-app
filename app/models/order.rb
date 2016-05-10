@@ -3,7 +3,10 @@ class Order < ActiveRecord::Base
   belongs_to :buyer, class_name: "User"
   belongs_to :seller, class_name: "User"
 
-  validates :address, :city, :state, :ordered_amount, presence: true
+  validates :ordered_amount, presence: true
+  def process_payment
+
+  end
 
   def decrease_quantity
   	self.listing.decrement!(:quantity, self.ordered_amount)

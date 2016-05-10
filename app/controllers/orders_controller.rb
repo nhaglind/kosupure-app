@@ -14,34 +14,45 @@ class OrdersController < ApplicationController
   def new
     @order = Order.new
     @listing = Listing.find(params[:listing_id])
+    @amount = (@listing.price * 100).floor
+    @seller = @listing.user
   end
 
   # POST /orders
   # POST /orders.json
   def create
-    @order = Order.new(order_params)
+    @order = Order.new(order_params.merge(address: stripe_params["stripeShippingAddressLine1"],
+                                          city: stripe_params["stripeShippingAddressCity"],
+                                          state: stripe_params["stripeShippingAddressState"]))
     @listing = Listing.find(params[:listing_id])
     @seller = @listing.user
+    @amount = (@listing.price * 100).floor
 
     @order.listing_id = @listing.id
     @order.buyer_id = current_user.id
     @order.seller_id = @seller.id
-
-    Stripe.api_key = ENV["stripe_api_key"]
-    token = params[:stripeToken]
+    
+    Stripe.api_key = @seller.access_code
 
     begin
+      customer = Stripe::Customer.create(
+          :email => params[:stripeEmail],
+          :source => params[:stripeToken])
+        
       charge = Stripe::Charge.create({
-        :amount => (@listing.price * 100).floor,
-        :currency => "usd",
-        :source => token
-      }, {:stripe_account => @seller.user.uid}
+          :customer => customer.id,
+          :amount => @amount,
+          :currency => "usd"},
+          {:stripe_account => @seller.uid}
       )
+      
       flash[:notice] = "Thanks for ordering!"
-    rescue Stripe::CardError => e
-      flash[:danger] = e.message
+ 
+      
+      rescue Stripe::CardError => e
+          flash[:error] = e.message
+          redirect_to new_charge_path
     end
-
 
     respond_to do |format|
       if @order.save
@@ -53,7 +64,6 @@ class OrdersController < ApplicationController
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
     end
-
     @order.decrease_quantity
   end
 
@@ -64,7 +74,13 @@ class OrdersController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def order_params
-      params.require(:order).permit(:address, :city, :state, :ordered_amount)
+    def stripe_params
+      params.permit(:stripeShippingAddressLine1, :stripeShippingAddressState, :stripeShippingAddressCity)
     end
+
+    def order_params
+      params.require(:order).permit(:ordered_amount, stripe_params)
+    end
+
+    
 end

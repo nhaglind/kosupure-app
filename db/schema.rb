@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160506195613) do
+ActiveRecord::Schema.define(version: 20160510072429) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,13 +49,6 @@ ActiveRecord::Schema.define(version: 20160506195613) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
-  create_table "categories", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "parent_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "listings", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
@@ -65,11 +58,8 @@ ActiveRecord::Schema.define(version: 20160506195613) do
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
     t.integer  "quantity"
-    t.integer  "category_id"
     t.boolean  "trade"
   end
-
-  add_index "listings", ["category_id"], name: "index_listings_on_category_id", using: :btree
 
   create_table "orders", force: :cascade do |t|
     t.string   "address"
@@ -107,5 +97,4 @@ ActiveRecord::Schema.define(version: 20160506195613) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  add_foreign_key "listings", "categories"
 end

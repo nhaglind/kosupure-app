@@ -2,11 +2,14 @@
 <html>
 	<head>
 		<title>KosupureDev</title>
+		<%= javascript_include_tag "https://js.stripe.com/v2/" %>
+		<script>
+			Stripe.setPublishableKey('<%= ENV["stripe_publishable_key"] %>');
+		</script>
 		<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
 		<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-		<%= javascript_include_tag "https://js.stripe.com/v2/" %>
+
 		<%= csrf_meta_tags %>
-		<%= tag :meta, :name => "stripe-key", :content => ENV["STRIPE_PUBLIC_KEY"] %>
 	</head>
 	<body>
 		<%= render 'layouts/header' %>
