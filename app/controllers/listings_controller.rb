@@ -17,15 +17,14 @@ class ListingsController < ApplicationController
   # GET /listings/1.json
   def show
   end
-
-  # Reduce
-  def reduce
-    @listing.quantity -= 1
-  end
   
   # GET /listings/new
   def new
-    @listing = Listing.new
+    if current_user.publishable_key
+      @listing = Listing.new
+    else
+      redirect_to user_omniauth_authorize_path(:stripe_connect)
+    end
   end
 
   # GET /listings/1/edit
@@ -41,16 +40,16 @@ class ListingsController < ApplicationController
     Stripe.api_key = ENV["STRIPE_API_KEY"]
     token = params[:stripeToken]
 
- if current_user.recipient.blank?
-    recipient = Stripe::Recipient.create(
-      :name => current_user.name,
-      :type => "individual",
-      :bank_account => token
-      )
+    if current_user.recipient.blank?
+      recipient = Stripe::Recipient.create(
+        :name => current_user.name,
+        :type => "individual",
+        :bank_account => token
+        )
 
-    current_user.recipient = recipient.id
-    current_user.save
-  end
+      current_user.recipient = recipient.id
+      current_user.save
+    end
 
     respond_to do |format|
       if @listing.save

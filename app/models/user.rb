@@ -11,12 +11,13 @@ class User < ActiveRecord::Base
   has_many :sales, class_name: "Order", foreign_key: "seller_id"
   has_many :purchases, class_name: "Order", foreign_key: "buyer_id"
 
-  def self.from_omniauth
+  def omniauthize(auth)
   	self.update_attributes({
-			provider: request.env["omniauth.auth"].provider,
-			uid: request.env["omniauth.auth"].uid,
-			access_code: request.env["omniauth.auth"].credentials.token
-			publishable_key: request.env["omniauth.auth"].info.stripe_publishable_key
+			provider: auth.provider,
+			uid: auth.uid,
+			access_code: auth.credentials.token,
+			publishable_key: auth.info.stripe_publishable_key
 			})
   end
+
 end
