@@ -26,6 +26,7 @@ gem "figaro"
 
 # user auth
 gem 'devise'
+gem 'omniauth-stripe-connect'
 
 # payment
 gem 'stripe'
