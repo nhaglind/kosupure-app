@@ -137,6 +137,10 @@ body {
 
 // Reduce these to single classes
 
+.no-border {
+  border: none;
+}
+
 body > div > div > div > div > div > div:nth-child(2) {
   margin-top: 5px;
 }
@@ -168,8 +172,6 @@ footer > div > span {
 h1 {
   color: #F492C2;
 }
-
-/* New Listing Form  */
 
 .new_listing_container {
   font-family: 'proxima-nova', sans-serif;
