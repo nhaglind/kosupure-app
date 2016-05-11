@@ -42,7 +42,24 @@
               </div>
               <div class='field'>
                 <%= f.label :images, "Upload images:"%>
-                <%= f.file_field :images, multiple: true %>
+                <%= f.file_field :images, multiple: true, id: "avatar-upload" %>
+                <img id="img_prev" width=300 height=300 src="#" alt="your image" class="img-thumbnail hidden"/>
+                <script>
+                $(function() {
+                function readURL(input) {
+                if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                $('#img_prev').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+                }
+                }
+                $("#avatar-upload").change(function(){
+                $('#img_prev').removeClass('hidden');
+                readURL(this);
+                });
+                });</script>
               </div>
             </div>
             <hr>

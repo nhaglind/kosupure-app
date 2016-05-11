@@ -2,7 +2,25 @@
   <div class="panel-body">
     <div class="row">
       <div class="col-md-6">
-        <%= image_tag @listing.images[0].url, class: "img-responsive pink-border" %>
+        <div class="demo">
+          <ul id="lightSlider">
+            <% @listing.images.each_index do |i| %>
+            <li>
+              <%= image_tag @listing.images[i].url, class: "img-responsive pink-border" %>
+            </li>
+            <% end %>
+          </ul>
+        </div>
+        <script>
+        $('#lightSlider').lightSlider({
+        gallery: true,
+        item: 1,
+        loop: true,
+        slideMargin: 0,
+        thumbItem: 9
+        });
+        </script>
+        <%#= image_tag @listing.images[0].url, class: "img-responsive pink-border" %>
         <div class="row">
           <div class="col-md-6">
             <p class="show-description">This can be date posted, perhaps?</p>
