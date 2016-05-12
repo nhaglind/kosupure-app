@@ -21,7 +21,7 @@
     <div class="panel-body">
         <div class="row">
             <div class="col-md-12">
-                <div class='new_listing_container'>
+                <section class="listing__form">
                     <header>
                         <h2>Create Listing!</h2>
                         <p>We don't take any cuts, but please be aware of the standard
@@ -71,7 +71,7 @@
                         </div>
                         <hr>
                         <div class='field'>
-                            <%= f.label :trade, "Accepts Trades?", class: "checkbox-trades" %>
+                            <%= f.label :trade, "Accepts Trades?", class: "checkbox__trades" %>
                             <%= f.check_box :trade, {}, 'true', 'false' %>
                             <p>If you check this box, your email will be broadcast to allow you to communicate with purchasers to coordinate what you're willing to trade for.</p>
                         </div>
@@ -83,7 +83,7 @@
                         <%= link_to 'Back', listings_path, class: "btn btn-primary" %>
                     </div>
                 </form>
-            </div>
+            </section>
         </div>
     </div>
 </div>
