@@ -24,13 +24,13 @@ body {
     color: $primary-pink;
 }
 .listing {
-    a {
-        color: $primary-pink;
-    }
     .bold-price {
         font-weight: bold;
         font-size: 20px;
     }
+}
+.caption a {
+  color: $primary-pink;
 }
 // Nav
 .navbar-default .navbar-brand {
@@ -77,6 +77,7 @@ body {
         margin: 2px;
     }
 }
+
 .wrap {
     min-height: calc(100vh - 100px);
 }
@@ -92,9 +93,7 @@ body {
     border-radius: 0;
     padding: 5px;
 }
-.pink-border {
-    border: 1px solid #EFC7D7;
-}
+
 .accepts_trades {
     background-image: url('https://www.dropbox.com/s/hr04f58uh8pcowb/accept_trades.jpg?raw=1');
     background-size: cover;
@@ -209,9 +208,7 @@ input#listing_trade {
     -moz-osx-font-smoothing: grayscale;
     transition: 0.3s linear;
 }
-#new_listing > div.panel.panel-default > div > div > div > div.new_listing_container > header > p > a {
-    color: #F492C2;
-}
+
 // Become a Seller
 .seller_hero {
     background-image: url('https://www.dropbox.com/s/bwh8hb5hm9e9rh8/anime_banner.jpg?raw=1');
@@ -238,8 +235,11 @@ input#listing_trade {
     font-weight: 300;
     line-height: 24px;
 }
-// MEGAMAN CLEAN UP HOLY MEODULAR
+
 // Utility Classes
 .center {
     text-align: center;
+}
+.pink-border {
+    border: 1px solid #EFC7D7;
 }
