@@ -1,75 +1,81 @@
 <div class="panel panel-default">
-  <div class="panel-body">
-    <div class="row">
-      <div class="col-md-12">
-        <div class='new_listing_container'>
-          <header>
-            <h2>Checkout</h2>
-          </header>
-          <p>We don't take any cuts, but please be aware of the standard <a href="https://stripe.com/us/pricing">Stripe</a> fees. Pitchfork kombucha plaid, microdosing polaroid YOLO tacos intelligentsia marfa mixtape trust fund freegan shoreditch sustainable food truck. Plaid etsy ramps farm-to-table, scenester neutra distillery swag helvetica shabby chic. Forage shoreditch +1 affogato thundercats, whatever bicycle rights butcher man braid brunch vegan taxidermy hammock. Skateboard hammock tousled yuccie. Chicharrones vice cliche, leggings bicycle rights mustache tumblr meditation distillery migas post-ironic bespoke marfa polaroid. Typewriter everyday carry gentrify, brunch asymmetrical artisan keytar. Readymade keffiyeh taxidermy yr health goth, schlitz cornhole DIY gastropub whatever migas meh quinoa actually bespoke.</p>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="panel panel-default">
-                <!-- Default panel contents -->
-                <div class="panel-heading"><%= @listing.name %><span class="pull-right"><%= number_to_currency(@listing.price) %></span></div>
-                <div class="thumbnail no-border">
-                  <%= image_tag @listing.images[0].url %>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class='new_listing_container'>
+                    <header>
+                        <h2>Checkout</h2>
+                    </header>
+                    <p>We don't take any cuts, but please be aware of the standard
+                        <a href="https://stripe.com/us/pricing">Stripe</a>
+                        fees. Pitchfork kombucha plaid, microdosing polaroid YOLO tacos intelligentsia marfa mixtape trust fund freegan shoreditch sustainable food truck. Plaid etsy ramps farm-to-table, scenester neutra distillery swag helvetica shabby chic. Forage
+                        shoreditch +1 affogato thundercats, whatever bicycle rights butcher man braid brunch vegan taxidermy hammock. Skateboard hammock tousled yuccie. Chicharrones vice cliche, leggings bicycle rights mustache tumblr meditation distillery migas post-ironic
+                        bespoke marfa polaroid. Typewriter everyday carry gentrify, brunch asymmetrical artisan keytar. Readymade keffiyeh taxidermy yr health goth, schlitz cornhole DIY gastropub whatever migas meh quinoa actually bespoke.</p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="panel panel-default">
+                                <!-- Default panel contents -->
+                                <div class="panel-heading"><%= @listing.name %>
+                                    <span class="pull-right"><%= number_to_currency(@listing.price) %></span>
+                                </div>
+                                <div class="thumbnail no-border">
+                                    <%= image_tag @listing.images[0].url %>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <%= form_for([@listing, @order]) do |f| %>
+                                <% if @order.errors.any? %>
+                                <div id="error_explanation" class="alert alert-danger alert-dismissable">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                    <h4><%= pluralize(@order.errors.count, "error") %>
+                                        prohibited this order from being saved:</h4>
+                                    <ul>
+                                        <% @order.errors.full_messages.each do |msg| %>
+                                        <li><%= msg %></li>
+                                        <% end %>
+                                    </ul>
+                                </div>
+                                <% end %>
+                            </div>
+
+                            <div id="stripe_error" class="alert alert-danger" style="display:none;">
+                                <noscript>JavaScript is not enabled and is required for this form, please enable it first in your web browser setting.</noscript>
+                            </div>
+                            <div class="form-group"></div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="panel panel-default">
+                                <!-- Default panel contents -->
+                                <div class="panel-heading">Payment Details</div>
+                                <!-- List group -->
+                                <ul class="list-group">
+                                    <li class="list-group-item">
+                                        <%= f.label :ordered_amount, "Quantity to Purchase" %>
+                                        <%= f.select :ordered_amount, (1..@listing.quantity), class: "form-control" %>
+                                    </li>
+                                    <li class="list-group-item">Ruby details number 1.</li>
+                                    <li class="list-group-item">Ruby details number 2.</li>
+                                    <li class="list-group-item">Ruby details number 3.</li>
+                                    <li class="list-group-item">
+                                        <script
+                                            src="https://checkout.stripe.com/checkout.js"
+                                            ,
+                                            class="stripe-button"
+                                            data-key="<%= @seller.publishable_key %>"
+                                            data-name="Kosupure"
+                                            data-description="<%= @listing.name %>"
+                                            data-amount="<%= @amount %>"
+                                            data-locale="auto"
+                                            data-zip-code="true"
+                                            data-shipping-address="true"></script>
+                                </ul>
+                            </div>
+                            <% end %>
+                        </div>
+                    </div>
+                    <%= link_to 'Back', listing_path(@listing), class: "btn btn-primary" %>
                 </div>
-              </div>
-              <div class="col-md-6">
-                <%= form_for([@listing, @order]) do |f| %>
-                <% if @order.errors.any? %>
-                <div id="error_explanation" class="alert alert-danger alert-dismissable">
-                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                  <h4><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h4>
-                  <ul>
-                    <% @order.errors.full_messages.each do |msg| %>
-                    <li><%= msg %></li>
-                    <% end %>
-                  </ul>
-                </div>
-                <% end %>
-                </div>
-                
-                <div id="stripe_error" class="alert alert-danger" style="display:none;">
-                  <noscript>JavaScript is not enabled and is required for this form, please enable it first in your web browser setting.</noscript>
-                </div>
-                <div class="form-group">
-                  
-                  
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="panel panel-default">
-                  <!-- Default panel contents -->
-                  <div class="panel-heading">Payment Details</div>
-                  <!-- List group -->
-                  <ul class="list-group">
-                    <li class="list-group-item">
-                      <%= f.label :ordered_amount, "Quantity to Purchase" %>
-                      <%= f.select :ordered_amount, (1..@listing.quantity), class: "form-control" %>
-                    </li>
-                    <li class="list-group-item">Ruby details number 1.</li>
-                    <li class="list-group-item">Ruby details number 2.</li>
-                    <li class="list-group-item">Ruby details number 3.</li>
-                    <li class="list-group-item">
-                      <script src="https://checkout.stripe.com/checkout.js", class="stripe-button"
-                      data-key = "<%= @seller.publishable_key %>"
-                      data-name = "Kosupure"
-                      data-description = "<%= @listing.name %>"
-                      data-amount = "<%= @amount %>"
-                      data-locale = "auto"
-                      data-zip-code = "true"
-                      data-shipping-address = "true"
-                      >
-                      </script>
-                    </ul>
-                  </div>
-                  <% end %>
-                </div>
-              </div>
-              <%= link_to 'Back', listing_path(@listing), class: "btn btn-primary" %>
             </div>
-          </div>
         </div>
-      </div>
+    </div>
+</div>

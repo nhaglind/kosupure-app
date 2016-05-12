@@ -26,7 +26,7 @@ body {
   font-weight: 400;
 }
 
-// Nav 
+// Nav
 
 .navbar-default .navbar-brand {
   font-family: guardian-egyptt, georgia, serif;
@@ -157,7 +157,7 @@ body > div > div > div > div > div > div:nth-child(2) {
   margin-top: 0px;
 }
 
-// Footer 
+// Footer
 
 footer {
   padding: 20px;
@@ -256,4 +256,35 @@ input#listing_trade {
 
 #new_listing > div.panel.panel-default > div > div > div > div.new_listing_container > header > p > a {
   color: #F492C2;
+}
+
+// Become a Seller
+
+.seller_hero {
+  background-image: url('https://www.dropbox.com/s/bwh8hb5hm9e9rh8/anime_banner.jpg?raw=1');
+  width: 100%;
+  height: 200px;
+}
+
+.seller {
+  font-family: 'proxima-nova', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.seller header {
+  text-align: center;
+}
+.seller header h2 {
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 24px;
+  margin: 15px;
+  padding: 0;
+}
+
+.seller h3 {
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 24px
 }
