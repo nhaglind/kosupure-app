@@ -1,259 +1,221 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
+$font-stack: Arial, Helvetica, sans-serif;
+$font-brand: guardian-egyptt, georgia, serif;
+$site-background-color: #F5F5F1;
+$primary-pink: #F492C2;
+$primary-white: #eee;
+$primary-black: #333;
+$secondary-pink: #f48fb1;
+$primary-purple: #31294E;
+$secondary-purple: #94405D;
 body {
-  background-color: #F5F5F1;
-  color: #333333;
-  font-family: Arial, Helvetica, sans-serif;
+    background-color: $site-background-color;
+    color: $primary-black;
+    font-family: Arial, Helvetica, sans-serif;
+    h1 {
+        color: #F492C2;
+    }
 }
-
 .jumbotron {
-  background-image: url('https://www.dropbox.com/s/bwh8hb5hm9e9rh8/anime_banner.jpg?raw=1');
+    background-image: url('https://www.dropbox.com/s/bwh8hb5hm9e9rh8/anime_banner.jpg?raw=1');
+    h1 {
+        color: $primary-purple;
+    }
+    h2 {
+        color: $primary-pink;
+    }
 }
-
-.jumbotron > h1 {
-   color: #31294E;
+.listing {
+    .bold-price {
+        font-weight: bold;
+        font-size: 20px;
+    }
 }
-.jumbotron > h2 {
-   color: #F492C2;
-}
-
-// Listings Page
-
 .caption a {
-  color: #F492C2;
-  font-family: Lato, sans-serif;
-  font-weight: 400;
+    color: $primary-pink;
 }
-
-// Nav 
-
 .navbar-default .navbar-brand {
-  font-family: guardian-egyptt, georgia, serif;
-  font-weight: 400;
-  color: #f48fb1;
-  font-size: 30px;
+    font-family: $font-brand;
+    font-weight: 400;
+    color: $secondary-pink;
+    font-size: 30px;
 }
-
 .navbar-default .navbar-nav > li > a {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 14px;
-  font-weight: 100;
-  color: #f48fb1;
+    font-family: $font-stack;
+    font-size: 14px;
+    font-weight: 100;
+    color: $secondary-pink;
 }
-
-// Buttons
-
 .btn-primary {
-  background-color: #f48fb1;
-  border-color: #eee;
+    background-color: $secondary-pink;
+    border-color: $primary-white;
 }
-
 .btn-primary:hover {
-  background-color: #AD1457;
-  border-color: #eee;
+    background-color: $secondary-purple;
+    border-color: $primary-white;
 }
-
-.btn-primary:active, .btn-primary.active, .open > .btn-primary.dropdown-toggle {
-  background-color: #AD1457;
-  border-color: #eee;
+.btn-primary.active,
+.open > .btn-primary.dropdown-toggle {
+    background-color: $secondary-purple;
+    border-color: $primary-white;
 }
-
-.btn-primary:active:hover, .btn-primary:active:focus, .btn-primary:active.focus, .btn-primary.active:hover, .btn-primary.active:focus, .btn-primary.active.focus, .open > .btn-primary.dropdown-toggle:hover, .open > .btn-primary.dropdown-toggle:focus, .open > .btn-primary.dropdown-toggle.focus {
-  background-color: #AD1457;
-  border-color: #eee;
+.btn-primary:active:focus,
+.btn-primary:active:hover,
+.open > .btn-primary.dropdown-toggle:focus,
+.open > .btn-primary.dropdown-toggle:hover {
+    background-color: $secondary-purple;
+    border-color: $primary-white;
 }
-.btn-primary:focus, .btn-primary.focus {
-  background-color: #AD1457;
-  border-color: #eee;
+.btn-primary.focus,
+.btn-primary:focus {
+    background-color: $secondary-purple;
+    border-color: $primary-white;
 }
-
-.center {
-  text-align: center;
-}
-
-.col-md-3:nth-child(4n+1) {
-  clear: left;
-}
-
-.col-md-6 {
-  h3 {
-    font-size: 45px;
-  }
-  h5 {
-    font-size: 25px;
-  }
-  p {
-    font-size: 18px;
-  }
-}
-
-.caption {
-  h3 {
-    font-size: 17px;
-    margin: 2px;
-  }
-}
-
-.wrap {
-  min-height: calc(100vh - 100px);
-}
-
-.bold-price {
-  font-weight: bold;
-  font-size: 20px;
-}
-
-// Show Page
-
 .list-group {
-  list-style: none;
+    list-style: none;
+    li {
+        border: 1px solid #EFC7D7;
+    }
 }
-
-.list-group-item {
-  border: 1px solid #EFC7D7
-}
-
 .badge {
-  background-color: #f48fb1;
-  border-radius: 0px;
-  padding: 5px;
+    background-color: #f48fb1;
+    border-radius: 0;
+    padding: 5px;
+}
+.accepts__trades {
+    background-image: url('https://www.dropbox.com/s/hr04f58uh8pcowb/accept_trades.jpg?raw=1');
+    background-size: cover;
 }
 
-.pink-border {
-  border: 1px solid #EFC7D7;
+.label__default {
+    background-color: #EBB0C4;
+    display: block;
+    padding: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
 }
-
-.accepts_trades {
-  background-image: url('https://www.dropbox.com/s/hr04f58uh8pcowb/accept_trades.jpg?raw=1');
-  background-size: cover;
+.seller_hero {
+    background-image: url('https://www.dropbox.com/s/bwh8hb5hm9e9rh8/anime_banner.jpg?raw=1');
+    width: 100%;
+    height: 200px;
 }
-
-.show-description {
-  margin-top: 10px;
-  font-family: inherit;
-  font-size: .9em !important;
+section {
+    font-family: 'proxima-nova', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    header {
+        text-align: center;
+        h2 {
+            font-size: 22px;
+            font-weight: 300;
+            line-height: 24px;
+            margin: 15px;
+            padding: 0;
+        }
+        h3 {
+            font-size: 22px;
+            font-weight: 300;
+            line-height: 24px;
+        }
+        p {
+            color: #666;
+        }
+    }
 }
-
-// Reduce these to single classes
-
-.no-border {
-  border: none;
+.listing__form {
+    font-family: 'proxima-nova', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    margin: 80px 20px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    header {
+        h2 {
+            color: #333;
+            font-size: 22px;
+            font-weight: 300;
+            line-height: 24px;
+            margin: 0 0 15px;
+            padding: 0;
+        }
+        p {
+            color: #666;
+            margin: 0 0 35px;
+        }
+    }
 }
-
-body > div > div > div > div > div > div:nth-child(2) {
-  margin-top: 5px;
-}
-
-body > div > div > div > div > div > div:nth-child(2) > p > span {
-  background-color: #EBB0C4;
-  display: block;
-  padding: 5px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1em;
-}
-
-body > div > div > div > div > div > div:nth-child(2) {
-  margin-top: 0px;
-}
-
-// Footer 
-
-footer {
-  padding: 20px;
-}
-
-footer > div > span {
-  color: #F492C2;
-}
-
-// Listing Form
-
-h1 {
-  color: #F492C2;
-}
-
-.new_listing_container {
-  font-family: 'proxima-nova', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-.new_listing_container  {
-  margin: 80px 20px;
-}
-.new_listing_container  header {
-  text-align: center;
-}
-.new_listing_container  header h2 {
-  color: #333;
-  font-size: 22px;
-  font-weight: 300;
-  line-height: 24px;
-  margin: 0 0 15px;
-  padding: 0;
-}
-.new_listing_container  header p {
-  color: #666;
-  margin: 0 0 35px;
-}
-
 input#listing_trade {
-  margin: 10px;
+    margin: 10px;
 }
-
-.checkbox-trades {
-  color: #333;
-  font-weight: 300;
-  line-height: 24px;
-  margin: 0 0 15px;
-  padding: 0;
+.checkbox__trades {
+    color: #333;
+    font-weight: 300;
+    line-height: 24px;
+    margin: 0 0 15px;
+    padding: 0;
 }
-
 .form {
-  background: #fff;
-  border: 1px solid #e5e5e5;
-  border-radius: 5px;
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
 }
-.form:before,
-.form:after {
-  content: '';
-  display: block;
-  clear: both;
+.form:after,
+.form:before {
+    content: '';
+    display: block;
+    clear: both;
 }
 .form .field {
-  width: 50%;
-  padding: 20px 20px 5px;
-  border-bottom: 1px solid #e5e5e5;
-  box-sizing: border-box;
-  float: left;
-  transition: 0.3s linear;
+    width: 50%;
+    padding: 20px 20px 5px;
+    border-bottom: 1px solid #e5e5e5;
+    box-sizing: border-box;
+    float: left;
+    transition: 0.3s linear;
 }
 .form .field:nth-child(2n) {
-  border-left: 1px solid #e5e5e5;
+    border-left: 1px solid #e5e5e5;
 }
 .form .field label {
-  color: #a1a1a1;
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
+    color: #a1a1a1;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
 }
 .form .field input {
-  outline: none;
-  background: none;
-  width: 100%;
-  border: 0;
-  padding: 5px 0;
-  color: #666;
-  font-family: 'proxima-nova';
-  font-size: 16px;
-  font-weight: 600;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  transition: 0.3s linear;
+    outline: none;
+    background: none;
+    width: 100%;
+    border: 0;
+    padding: 5px 0;
+    color: #666;
+    font-family: 'proxima-nova';
+    font-size: 16px;
+    font-weight: 600;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: 0.3s linear;
 }
-
-#new_listing > div.panel.panel-default > div > div > div > div.new_listing_container > header > p > a {
-  color: #F492C2;
+.caption {
+    h3 {
+        font-size: 17px;
+        margin: 2px;
+    }
+}
+.wrap {
+    min-height: calc(100vh - 100px);
+}
+.center {
+    text-align: center;
+}
+.pink-border {
+    border: 1px solid #EFC7D7;
+}
+.no-border {
+    border: none;
+}
+footer {
+    color: #F492C2;
+    padding-bottom: 20px;
 }

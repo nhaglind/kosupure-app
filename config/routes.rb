@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
-  resources :listings do 
+  resources :listings do
     resources :orders, only: [:new, :create]
   end
   get 'pages/about'
@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get 'seller' => "listings#seller"
   get 'sales' => "orders#sales"
   get 'purchases' => "orders#purchases"
-  
+
   root 'listings#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
