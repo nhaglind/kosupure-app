@@ -342,13 +342,13 @@ body {
   text-overflow: ellipsis;
   text-decoration: none;
   white-space: nowrap;
-  background-color: $primary-pink;
-  border: 1px solid $primary-pink;
+  background-color: $primary-purple;
+  border: 1px solid $primary-purple;
 }
 .navbar-category:hover .category-btn {
   color: #fff;
-  background-color: $secondary-pink;
-  border-color: $secondary-pink;
+  background-color: $secondary-purple;
+  border-color: $secondary-purple;
 }
 /* Category menu */
 .navbar-category:hover>.category-menu {
@@ -412,7 +412,7 @@ body {
 .category-menu>.category-dropdown>a:hover,
 .category-menu>.category-dropdown:hover>a {
   background-color: #f1f6fa;
-  border-left-color: $secondary-pink;
+  border-left-color: $secondary-purple;
 }
 /* Caret */
 .category-menu>.category-dropdown>a {
