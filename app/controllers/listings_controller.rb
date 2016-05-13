@@ -11,12 +11,13 @@ class ListingsController < ApplicationController
   # GET /listings.json
   def index
     if params[:category].blank?
-      @listings = Listing.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 12)
-    else 
-      @category_id = [Category.find_by(name: params[:category]).id]
-      @subcategories = Category.find_all_subs(@category_id)
-      @listings = Listing.where(category_id: @category_id + @subcategories).order("created_at DESC").paginate(:page => params[:page], :per_page => 12)
+      @listings = Listing.all.order("created_at DESC").order(params[:order]).paginate(:page => params[:page], :per_page => 12)
+    else
+      @category_id = [params[:category]]
+      @subcategories = Category.find_all_heirs(@category_id)
+      @listings = Listing.where(category_id: @category_id + @subcategories).order(params[:order]).paginate(:page => params[:page], :per_page => 12)
     end
+
   end
 
   # GET /listings/1

@@ -4,9 +4,26 @@
         <h2>Cosplay Cantina</h2>
     </div>
     <div>
-      <% Category.all.each do |category| %>
-        <%= link_to category.name, listings_path(category: category.name) %>
-      <% end %>
+       <% if params[:category].blank? %>
+            <% Category.only_parents.each do |category| %>
+                <%= link_to category.name, params.merge(category: category.id) %>
+            <% end %>
+        <% else %>
+            <% Category.sub_display(params[:category]).each do |category| %>
+                <%= link_to category.name, params.merge(category: category.id) %>
+            <% end %>
+            <% c = Category.find_by_id(params[:category]) %>
+            <%= link_to "Back to Parent", params.merge(category: c.parent_id) %>
+        <% end %>
+      <%# Category.only_parents.each do |category| %>
+        <%#= link_to category.name, params.merge(category: category.name) %>
+      <%# end %>
+    </div>
+    <br>
+    <div>
+        <%= link_to "Highest Price", params.merge(order: "price DESC") %>
+        <%= link_to "Lowest Price", params.merge(order: "price ASC") %>
+        <%= link_to "Most Recent", params.merge(order: "created_at DESC") %>
     </div>
     <div class=”center”>
         <% @listings.in_groups_of(3, false) do |listing_array| %>
