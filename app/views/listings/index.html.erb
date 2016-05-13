@@ -9,11 +9,13 @@
                 <%= link_to category.name, params.merge(category: category.id) %>
             <% end %>
         <% else %>
+            <% c = Category.find_by_id(params[:category]) %>
+            <%= link_to "Up One Level", params.merge(category: c.parent_id) %>
+            <%= c.name %>
+            <i class="glyphicon glyphicon-play"></i>
             <% Category.sub_display(params[:category]).each do |category| %>
                 <%= link_to category.name, params.merge(category: category.id) %>
             <% end %>
-            <% c = Category.find_by_id(params[:category]) %>
-            <%= link_to "Back to Parent", params.merge(category: c.parent_id) %>
         <% end %>
       <%# Category.only_parents.each do |category| %>
         <%#= link_to category.name, params.merge(category: category.name) %>
