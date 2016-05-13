@@ -15,15 +15,7 @@
                 <input type="submit" value="Search"/>
             </form>
         </div>
-        <!-- Navbar category -->
-        <div class="navbar-category">
-            <a href="javascript:;" class="category-button">
-                <div class="category-btn">
-                    <i class="fa fa-chevron-circle-down"></i> Browse
-                </div>
-            </a>
-            <ul class="category-menu">
-                <li class="category-dropdown">
+</div>
                     <% if params[:category].blank? %>
                     <% Category.only_parents.each do |category| %>
                     <%= link_to category.name, params.merge(category: category.id) %>
@@ -36,9 +28,7 @@
                     <% Category.sub_display(params[:category]).each do |category| %>
                     <%= link_to category.name, params.merge(category: category.id) %>
                     <% end %>
-                </li>
                 <% end %>
-            </ul>
         </div>
     </div>
 </nav>
