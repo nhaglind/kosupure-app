@@ -10,7 +10,13 @@ class ListingsController < ApplicationController
   # GET /listings
   # GET /listings.json
   def index
-    @listings = Listing.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 12)
+    if params[:category].blank?
+      @listings = Listing.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 12)
+    else 
+      @category_id = [Category.find_by(name: params[:category]).id]
+      @subcategories = Category.find_all_subs(@category_id)
+      @listings = Listing.where(category_id: @category_id + @subcategories).order("created_at DESC").paginate(:page => params[:page], :per_page => 12)
+    end
   end
 
   # GET /listings/1
@@ -80,7 +86,7 @@ class ListingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
-      params.require(:listing).permit(:name, :description, :price, :quantity, :trade, {images: []})
+      params.require(:listing).permit(:name, :description, :price, :quantity, :trade, {images: []}, :category_id)
     end
 
     def check_user
