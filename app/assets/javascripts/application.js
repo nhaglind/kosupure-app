@@ -15,3 +15,40 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+$.fn.extend({
+  rippleBtn: function() {
+
+    function aniEnd(obj, fn) {
+      $(obj).on("animationend", fn);
+    }
+
+    return this.each(function() {
+
+      var me = $(this);
+
+      me.on("mousedown", function(e) {
+
+        var x = e.pageX,
+          y = e.pageY;
+
+        x = x - me.offset().left;
+        y = y - me.offset().top;
+
+        var ripple = $("<span class='ripple'></span>");
+        ripple.css({
+          left: x - 2,
+          top: y - 2
+        });
+        me.append(ripple);
+        aniEnd(ripple, function() {
+          ripple.remove();
+        });
+
+      });
+
+    });
+
+  }
+})
+
+$(".btn").rippleBtn();
