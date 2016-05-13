@@ -14,7 +14,7 @@
     <% listing_array.each do |listing| %>
     <div class="col-md-2">
       <div class="thumbnail">
-        <%= link_to image_tag(listing.images[0].thumb.url), listing %>
+        <%= listing_link(listing) %>
       </div>
     </div>
     <div class="col-md-2">
