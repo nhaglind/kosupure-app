@@ -1,4 +1,5 @@
 class Listing < ActiveRecord::Base
+
   mount_uploaders :images, ImageUploader
 
   validates :name, :description, :price, presence: true
@@ -8,4 +9,7 @@ class Listing < ActiveRecord::Base
   belongs_to :category
   has_many :orders
 
+  def self.search(keyword)
+  	where("name ILIKE ? OR description ILIKE ?", "%#{keyword}%", "%#{keyword}%")
+  end
 end

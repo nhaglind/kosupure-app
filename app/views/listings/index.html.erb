@@ -10,10 +10,11 @@
     </div>
     <!-- Navbar search -->
     <div class="navbar-search">
-      <form class="search-form" method="get" action="/search">
-        <input type="text" name="q" placeholder="Search"/>
-        <input type="submit" value="Search"/>
-      </form>
+      <%= form_tag("/listings", method: "get", class: "search-form") do %>
+        <%= text_field_tag(:search, params[:search]) %>
+        <%#= select_tag(:category, options_from_collection_for_select(Category.only_parents, "id", "name")) %>
+        <%= submit_tag("Search", :name => nil) %>
+      <% end %>
     </div>
   </div>
   <div class="center">

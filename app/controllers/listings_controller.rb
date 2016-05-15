@@ -10,7 +10,9 @@ class ListingsController < ApplicationController
   # GET /listings
   # GET /listings.json
   def index
-    if params[:category].blank?
+    if params[:search]
+      @listings = Listing.search(params[:search]).order(params[:order]).paginate(:page => params[:page], :per_page => 12)
+    elsif params[:category].blank?
       @listings = Listing.all.order("created_at DESC").order(params[:order]).paginate(:page => params[:page], :per_page => 12)
     else
       @category_id = [params[:category]]
