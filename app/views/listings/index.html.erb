@@ -1,8 +1,9 @@
 <div class="jumbotron">
   <h1>Kosupure</h1>
   <h2>Cosplay Cantina</h2>
+  <h6 class="hide-hero-anime"><a href="#">Hide Me Senapi</a></h6>
 </div>
-<nav class="navbar">
+<nav class="navbar no-border">
   <div class="navbar-container">
     <!-- Navbar btn -->
     <div class="navbar-button">
@@ -17,21 +18,28 @@
       <% end %>
     </div>
   </div>
-  <div class="center">
+  <div class="sort">
+  <i class="glyphicon glyphicon-sort"></i>
+  <%= link_to "Highest Price", params.merge(order: "price DESC") %>
+  <%= link_to "Lowest Price", params.merge(order: "price ASC") %>
+  <%= link_to "Most Recent", params.merge(order: "created_at DESC") %>
+</div>
+  <ul class="flex-menu">
     <% if params[:category].blank? %>
-      <% Category.only_parents.each do |category| %><span class='btn btn-default category-button'>
-          <%= link_to category.name, params.merge(category: category.id) %></span>
+      <% Category.only_parents.each do |category| %><li>
+          <%= link_to category.name, params.merge(category: category.id) %></li>
       <% end %>
     <% else %>
-      <% c = Category.find_by_id(params[:category]) %><span class='btn btn-default category-button'>
-        <%= link_to "Up One Level", params.merge(category: c.parent_id) %></span><span class='btn btn-default category-button'>
-        <%= c.name %>
-        <i class="glyphicon glyphicon-play"></i>
-        <% Category.sub_display(params[:category]).each do |category| %></span><span class='btn btn-default category-button'>
+      <% c = Category.find_by_id(params[:category]) %><li>
+        <%= link_to "Up One Level", params.merge(category: c.parent_id) %></li>
+        <li><a><%= c.name %>
+        <i class="glyphicon glyphicon-play"></i></a></li>
+        <% Category.sub_display(params[:category]).each do |category| %><li>
           <%= link_to category.name, params.merge(category: category.id) %>
         <% end %>
       <% end %>
-    </span>
+    </a></li>
+    </ul>
   </div>
 </span>
 </div>
@@ -41,11 +49,7 @@
   <%#= link_to category.name, params.merge(category: category.name) %>
   <%# end %>
 </div>
-<div class="center">
-  <%= link_to "Highest Price", params.merge(order: "price DESC") %>
-  <%= link_to "Lowest Price", params.merge(order: "price ASC") %>
-  <%= link_to "Most Recent", params.merge(order: "created_at DESC") %>
-</div>
+
 <hr>
 <section class="listing">
   <div class=”center”>

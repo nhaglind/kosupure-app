@@ -13,7 +13,7 @@ class ListingsController < ApplicationController
     if params[:search]
       @listings = Listing.search(params[:search]).order(params[:order]).paginate(:page => params[:page], :per_page => 12)
     elsif params[:category].blank?
-      @listings = Listing.all.order("created_at DESC").order(params[:order]).paginate(:page => params[:page], :per_page => 12)
+      @listings = Listing.all.order(params[:order]).paginate(:page => params[:page], :per_page => 12)
     else
       @category_id = [params[:category]]
       @subcategories = Category.find_all_heirs(@category_id)
