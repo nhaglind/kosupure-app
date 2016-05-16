@@ -1,2 +1,17 @@
 module OrdersHelper
+	def order_image_through_listing(listing)
+		if listing.images.any?
+			image_tag listing.images[0].url
+		else
+			image_tag "default.jpg"
+		end
+	end
+
+	def order_image(order)
+		if order.listing.images.any?
+			image_tag order.listing.images[0].url
+		else
+			image_tag "default.jpg"
+		end
+	end
 end
