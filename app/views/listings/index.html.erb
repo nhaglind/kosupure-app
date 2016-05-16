@@ -27,15 +27,15 @@
   <ul class="flex-menu">
     <% if params[:category].blank? %>
       <% Category.only_parents.each do |category| %><li>
-          <%= link_to category.name, params.merge(category: category.id) %></li>
+          <%= link_to category.name, listings_path(category: category) %></li>
       <% end %>
     <% else %>
       <% c = Category.find_by_id(params[:category]) %><li>
-        <%= link_to "Up One Level", params.merge(category: c.parent_id) %></li>
+        <%= link_to "Up One Level", listings_path(category: c.parent_id) %></li>
         <li><a><%= c.name %>
         <i class="glyphicon glyphicon-play"></i></a></li>
         <% Category.sub_display(params[:category]).each do |category| %><li>
-          <%= link_to category.name, params.merge(category: category.id) %>
+          <%= link_to category.name, listings_path(category: category) %>
         <% end %>
       <% end %>
     </a></li>
@@ -69,7 +69,7 @@
                   <%= number_to_currency(listing.price, locale: "en") %>
                 </p>
               </div>
-              <p><%= "Sold by #{listing.user.name}" %></p>
+              <p><%= link_to "Sold by #{listing.user.name}", listings_path(name: listing.user) %></p>
             </div>
           </div>
         <% end %>
