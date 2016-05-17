@@ -3,13 +3,13 @@
   <h2>Cosplay Cantina</h2>
   <h6 class="hide-hero-anime"><a href="#">Hide Me Senpai</a></h6>
 </div>
+
 <nav class="navbar no-border">
   <div class="navbar-container">
-    <!-- Navbar btn -->
     <div class="navbar-button">
       <a href="#" class="navbar-btn"><i class="fa fa-heart"></i>Feeling lucky punk?</a>
     </div>
-    <!-- Navbar search -->
+
     <div class="navbar-search">
       <%= form_tag("/listings", method: "get", class: "search-form") do %>
         <%= text_field_tag(:search, params[:search]) %>
@@ -18,68 +18,70 @@
       <% end %>
     </div>
   </div>
+
   <div class="sort">
-  <i class="glyphicon glyphicon-sort"></i>
-  <%= link_to "Highest Price", params.merge(order: "price DESC") %>
-  <%= link_to "Lowest Price", params.merge(order: "price ASC") %>
-  <%= link_to "Most Recent", params.merge(order: "created_at DESC") %>
-</div>
+    <i class="glyphicon glyphicon-sort"></i>
+    <%= link_to "Highest Price", params.merge(order: "price DESC") %>
+    <%= link_to "Lowest Price", params.merge(order: "price ASC") %>
+    <%= link_to "Most Recent", params.merge(order: "created_at DESC") %>
+  </div>
+
   <ul class="flex-menu">
     <% if params[:category].blank? %>
-      <% Category.only_parents.each do |category| %><li>
+      <% Category.only_parents.each do |category| %>
+        <li>
           <%= link_to category.name, listings_path(category: category) %></li>
       <% end %>
     <% else %>
-      <% c = Category.find_by_id(params[:category]) %><li>
-        <%= link_to "Up One Level", listings_path(category: c.parent_id) %></li>
-        <li><a><%= c.name %>
-        <i class="glyphicon glyphicon-play"></i></a></li>
-        <% Category.sub_display(params[:category]).each do |category| %><li>
+      <% c = Category.find_by_id(params[:category]) %>
+      <li>
+        <%= link_to "Up One Level", listings_path(category: c.parent_id) %>
+      </li>
+      <li>
+        <a><%= c.name %>
+          <i class="glyphicon glyphicon-play"></i>
+        </a>
+      </li>
+          <% Category.sub_display(params[:category]).each do |category| %>
+      <li>
           <%= link_to category.name, listings_path(category: category) %>
         <% end %>
       <% end %>
-    </a></li>
+      </li>
     </ul>
   </div>
-</span>
-</div>
-</div>
 </nav>
 <%# Category.only_parents.each do |category| %>
   <%#= link_to category.name, params.merge(category: category.name) %>
   <%# end %>
 </div>
-
-<hr>
 <section class="listing">
   <div class=”center”>
-    <% @listings.in_groups_of(3, false) do |listing_array| %>
+    <% @listings.in_groups_of(4, false) do |listing_array| %>
       <div class="row">
         <% listing_array.each do |listing| %>
-          <div class="col-md-2">
-            <div class="thumbnail">
-              <%= listing_link(listing) %>
-            </div>
-          </div>
-          <div class="col-md-2">
-            <div class="caption">
-              <h3><%= link_to listing.name, listing %></h3>
-              <div class="bold-price">
-                <p>
-                  <%= number_to_currency(listing.price, locale: "en") %>
-                </p>
+          <div class="col-md-3">
+            <div class="card">
+              <div class="thumbnail">
+                <%= listing_link(listing) %>
               </div>
-              <p><%= link_to "Sold by #{listing.user.name}", listings_path(name: listing.user) %></p>
+              <div class="card-block">
+                <h4 class="card-title"><%= link_to listing.name, listing %></h4>
+                <p class="card-text"><%= number_to_currency(listing.price, locale: "en") %></p>
+                <p class="card-text"><%= link_to "Sold by #{listing.user.name}", listings_path(name: listing.user) %></p>
+              </div>
             </div>
           </div>
         <% end %>
       </div>
-    <% end %>
+    </div>
   </div>
-  <br>
-  <%= will_paginate @listings, renderer: BootstrapPagination::Rails %>
-  <br>
-  <% if (user_signed_in?) %>
-    <%= link_to "New Listing", new_listing_path, class: "btn btn-primary", data: { no_turbolink: true } %>
-  <% end %>
+<% end %>
+</div>
+<br>
+<%= will_paginate @listings, renderer: BootstrapPagination::Rails %>
+<br>
+<% if (user_signed_in?) %>
+  <%= link_to "New Listing", new_listing_path, class: "btn btn-primary", data: { no_turbolink: true } %>
+<% end %>
 </section>
