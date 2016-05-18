@@ -84,8 +84,7 @@
 <script>
     var number = Number($('.pull-right').text().replace(/[^0-9\.]+/g,""));
     $("#order_ordered_amount").change(function() {
-        totalCost = (number * this.value).toFixed(2)
-        $('#total').text('$' + totalCost)
+        $('#total').text('$' + (number * this.value).toFixed(2))
         $('#quantity').text(this.value)
         if (this.value > 1) {
             $('#plural').text('s ')
