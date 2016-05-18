@@ -53,7 +53,9 @@
                                         <%= f.label :ordered_amount, "Quantity to Purchase" %>
                                         <%= f.select :ordered_amount, (1..@listing.quantity), class: "form-control" %>
                                     </li>
-                                    <li class="list-group-item">Total<div id="total"><%= number_to_currency(@listing.price) %></div></li>
+                                    <li class="list-group-item">
+                                        Total: <%= number_to_currency(@listing.price) %> x <span id="quantity">1</span> item<span id="plural"> </span>= <span id ="total"><%= number_to_currency(@listing.price) %></span>
+                                    </li>
                                     <li class="list-group-item">Ruby details number 2.</li>
                                     <li class="list-group-item">Ruby details number 3.</li>
                                     <li class="list-group-item">
@@ -61,10 +63,11 @@
                                             data-key="<%= @seller.publishable_key %>"
                                             data-name="Kosupure"
                                             data-description="<%= @listing.name %>"
-                                            data-amount="<%= @amount %>"
+                                            data-amount= ""
                                             data-locale="auto"
                                             data-zip-code="true"
-                                            data-shipping-address="true">
+                                            data-shipping-address="true"
+                                            >
                                         </script>
                                     </li>
                                 </ul>
@@ -78,13 +81,18 @@
         </div>
     </div>
 </div>
-
-    <script>
-    var currency = ($('.pull-right').text());
-    var number = Number(currency.replace(/[^0-9\.]+/g,""));
+<script>
+    var number = Number($('.pull-right').text().replace(/[^0-9\.]+/g,""));
     $("#order_ordered_amount").change(function() {
-    $(".pull-right").text(number);
-    $('#total').text(parseFloat($('.pull-right').text()) * parseFloat($('option:selected').text()))
-    });
-    var checkout_total = ($('#total').text());
-    </script>
+        totalCost = (number * this.value).toFixed(2)
+        $('#total').text('$' + totalCost)
+        $('#quantity').text(this.value)
+        if (this.value > 1) {
+            $('#plural').text('s ')
+        } else {
+            $('#plural').text(' ')
+        }
+    });   
+</script>
+
+

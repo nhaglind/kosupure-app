@@ -14,7 +14,6 @@ class OrdersController < ApplicationController
   def new
     @order = Order.new
     @listing = Listing.find(params[:listing_id])
-    @amount = (@listing.price * 100).floor
     @seller = @listing.user
   end
 
@@ -26,7 +25,7 @@ class OrdersController < ApplicationController
                                           state: stripe_params["stripeShippingAddressState"]))
     @listing = Listing.find(params[:listing_id])
     @seller = @listing.user
-    @amount = (@listing.price * 100).floor
+    @amount = (@listing.price * 100 * @order.ordered_amount).floor
 
     @order.listing_id = @listing.id
     @order.buyer_id = current_user.id
