@@ -2,22 +2,25 @@
 @import "bootstrap";
 
 $font-stack: Arial, Helvetica, sans-serif;
+$font-content: 'proxima-nova', sans-serif;
 $font-brand: guardian-egyptt, georgia, serif;
 $site-background-color: #f5f5f1;
 $primary-pink: #f492c2;
-$primary-white: #fff;
-$primary-black: #333;
 $secondary-pink: #f48fb1;
+$pink-border: #EFC7D7;
 $primary-purple: #31294e;
 $secondary-purple: #94405d;
+$primary-white: #fff;
+$secondary-white: #e5e5e5;
+$primary-grey: #666;
+$primary-black: #333;
 
 body {
   background-color: $site-background-color;
   color: $primary-black;
-  font-family: Arial, Helvetica, sans-serif;
 
   h1 {
-    color: #F492C2;
+    color: $primary-pink;
   }
 }
 
@@ -25,10 +28,6 @@ ul {
   list-style: none;
   padding: 0;
   margin: 0;
-}
-
-a {
-  text-decoration: none;
 }
 
 .container {
@@ -44,10 +43,8 @@ a {
   max-width: 1050px;
   margin: auto;
   margin: 28px auto 20px;
-  border: 1px solid #ececec;
-  border-bottom-color: #e2e2e2;
   border-radius: 5px;
-  background-color: #fff;
+  background-color: $primary-white;
   padding-top: 28px;
   padding-right: 15px;
   padding-bottom: 28px;
@@ -119,48 +116,44 @@ a {
   color: $secondary-pink;
 }
 
+
+.btn {
+    font-family: $font-content;
+    padding: 6px 12px;
+    border: 0 none;
+    font-weight: 300;
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: $primary-pink;
+    text-transform: uppercase;
+}
+
+ 
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+    background: $secondary-pink;
+}
+ 
 .btn-primary {
-  background-color: $secondary-pink;
-  border-color: $primary-white;
+    background: $primary-pink;
+    color: $primary-white;
 }
-
-.btn-primary:hover {
-  background-color: $secondary-purple;
-  border-color: $primary-white;
+ 
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    background: $secondary-purple;
 }
-
-.btn-primary.active,
-.open > .btn-primary.dropdown-toggle {
-  background-color: $secondary-purple;
-  border-color: $primary-white;
-}
-
-.btn-primary:active:focus,
-.btn-primary:active:hover,
-.open > .btn-primary.dropdown-toggle:focus,
-.open > .btn-primary.dropdown-toggle:hover {
-  background-color: $secondary-purple;
-  border-color: $primary-white;
-}
-
-.btn-primary.focus,
-.btn-primary:focus {
-  background-color: $secondary-purple;
-  border-color: $primary-white;
+ 
+.btn-primary:active, .btn-primary.active {
+    background: $secondary-purple;
+    box-shadow: none;
 }
 
 .list-group {
   list-style: none;
 
   li {
-    border: 1px solid #EFC7D7;
+    border: 1px solid $pink-border;
   }
-}
-
-.badge {
-  background-color: #f48fb1;
-  border-radius: 0;
-  padding: 5px;
 }
 
 .accepts__trades {
@@ -172,7 +165,6 @@ a {
   background-color: #EBB0C4;
   display: block;
   padding: 5px;
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 1em;
 }
 
@@ -183,7 +175,7 @@ a {
 }
 
 section {
-  font-family: 'proxima-nova', sans-serif;
+  font-family: $font-content;
   font-size: 14px;
   font-weight: 300;
 
@@ -205,13 +197,13 @@ section {
     }
 
     p {
-      color: #666;
+      color: $primary-grey;
     }
   }
 }
 
 .listing__form {
-  font-family: 'proxima-nova', sans-serif;
+  font-family: $font-content;
   font-size: 14px;
   font-weight: 400;
   margin: 80px 20px;
@@ -229,7 +221,7 @@ section {
     }
 
     p {
-      color: #666;
+      color: $primary-grey;
       margin: 0 0 35px;
     }
   }
@@ -248,8 +240,8 @@ input#listing_trade {
 }
 
 .form {
-  background: #fff;
-  border: 1px solid #e5e5e5;
+  background: $primary-white;
+  border: 1px solid $secondary-white;
   border-radius: 5px;
 }
 
@@ -263,14 +255,14 @@ input#listing_trade {
 .form .field {
   width: 50%;
   padding: 20px 20px 5px;
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px solid $secondary-white;
   box-sizing: border-box;
   float: left;
   transition: .3s linear;
 }
 
 .form .field:nth-child(2n) {
-  border-left: 1px solid #e5e5e5;
+  border-left: 1px solid $secondary-white;
 }
 
 .form .field label {
@@ -286,8 +278,8 @@ input#listing_trade {
   width: 100%;
   border: 0;
   padding: 5px 0;
-  color: #666;
-  font-family: 'proxima-nova';
+  color: $primary-grey;
+  font-family: $font-content;
   font-size: 16px;
   font-weight: 600;
   -webkit-font-smoothing: antialiased;
@@ -320,7 +312,7 @@ input#listing_trade {
 }
 
 .pink-border {
-  border: 1px solid #EFC7D7;
+  border: 1px solid $pink-border;
 }
 
 .no-border {
@@ -328,7 +320,7 @@ input#listing_trade {
 }
 
 footer {
-  color: #F492C2;
+  color: $primary-pink;
   padding-bottom: 20px;
 }
 
@@ -337,10 +329,6 @@ footer {
 *::after {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-}
-
-body {
-  font-family: sans-serif;
 }
 
 .navbar::before,
@@ -398,7 +386,7 @@ body {
   font-weight: normal;
   line-height: 1.4;
   color: #333;
-  background-color: #fff;
+  background-color: $primary-white;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
@@ -417,7 +405,7 @@ body {
   font-size: 14px;
   font-weight: bold;
   line-height: 1.4;
-  color: #fff;
+  color: $primary-white;
   background-color: #555;
   border: 1px solid #555;
   border-top-right-radius: 4px;
@@ -542,7 +530,7 @@ $primary-color: #333;
   p {
     margin-top: 10px;
     padding-top: 10px;
-    border-top: 1px solid #EFC7D7;
+    border-top: 1px solid $pink-border;
   }
 }
 
@@ -573,7 +561,7 @@ $primary-color: #333;
 .item.list-group-item {
   float: none;
   width: 100%;
-  background-color: #fff;
+  background-color: $primary-white;
   border: 0;
   padding: none;
 
