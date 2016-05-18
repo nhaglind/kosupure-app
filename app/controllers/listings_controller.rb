@@ -11,15 +11,15 @@ class ListingsController < ApplicationController
   # GET /listings.json
   def index
     if params[:search]
-      @listings = Listing.search(params[:search]).order_and_paginate(params[:order], params[:page])
+      @listings = Listing.no_zeroes.search(params[:search]).order_and_paginate(params[:order], params[:page])
     elsif params[:name]
-      @listings = Listing.where(user: params[:name]).order_and_paginate(params[:order], params[:page])
+      @listings = Listing.no_zeroes.where(user: params[:name]).order_and_paginate(params[:order], params[:page])
     elsif params[:category]
       @category_id = [params[:category]]
       @subcategories = Category.find_all_heirs(@category_id)
-      @listings = Listing.where(category_id: @category_id + @subcategories).order_and_paginate(params[:order], params[:page])
+      @listings = Listing.no_zeroes.where(category_id: @category_id + @subcategories).order_and_paginate(params[:order], params[:page])
     else
-      @listings = Listing.all.order_and_paginate(params[:order], params[:page])
+      @listings = Listing.all.no_zeroes.order_and_paginate(params[:order], params[:page])
     end
 
   end

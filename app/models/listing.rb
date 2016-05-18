@@ -9,6 +9,7 @@ class Listing < ActiveRecord::Base
   belongs_to :category
   has_many :orders
 
+  scope :no_zeroes, -> { where("quantity > 0") }
   scope :order_and_paginate, -> (order, page) { order(order).paginate(:page => page, :per_page => 12) }
 
   def self.search(keyword)

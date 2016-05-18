@@ -10,9 +10,5 @@ class Order < ActiveRecord::Base
 
   def decrease_quantity
   	self.listing.decrement!(:quantity, self.ordered_amount)
-
-  	if self.listing.quantity == 0
-  		self.listing.destroy
-  	end
   end
 end

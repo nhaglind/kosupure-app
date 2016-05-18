@@ -9,7 +9,7 @@
           <% @listings.each do |listing| %>
             <div class="item list-group-item  col-lg-4">
               <div class="thumbnail">
-                <%= image_tag listing.images[0].url %>
+                <%= image_tag listing.images[0].to_s %>
                 <div class="caption">
                   <h4 class="group inner list-group-item-heading">
                     <%= listing.name %>

@@ -8,10 +8,14 @@ module OrdersHelper
 	end
 
 	def order_image(order)
-		if order.listing.images.any?
-			image_tag order.listing.images[0].url
+		if order.listing
+			if order.listing.images.any?
+				image_tag order.listing.images[0].to_s
+			else
+				image_tag "default.jpg"
+			end
 		else
-			image_tag "default.jpg"
+				image_tag "default.jpg"
 		end
 	end
 end
