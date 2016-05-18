@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<title>KosupureDev</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<%= javascript_include_tag "https://js.stripe.com/v2/" %>
 		<script>
 			Stripe.setPublishableKey('<%= ENV["stripe_publishable_key"] %>');

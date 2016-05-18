@@ -5,9 +5,11 @@
 </div>
 <nav class="navbar no-border">
   <div class="navbar-container">
+
     <div class="navbar-button">
       <a href="#" class="navbar-btn"><i class="fa fa-heart"></i>Feeling lucky punk?</a>
     </div>
+    
     <div class="navbar-search">
       <%= form_tag("/listings", method: "get", class: "search-form") do %>
         <%= text_field_tag(:search, params[:search]) %>
@@ -57,7 +59,7 @@
       <% @listings.in_groups_of(4, false) do |listing_array| %>
         <div class="row">
           <% listing_array.each do |listing| %>
-            <div class="col-md-3">
+            <div class="col-sm-3">
               <div class="card">
                 <div class="thumbnail">
                   <%= listing_link(listing) %>
