@@ -536,12 +536,9 @@ $primary-color: #333;
 
 #lightSlider {
     img {
-        width: auto;
-        max-width: 570px;
-        display: inline-block;
-        vertical-align: middle;
         margin: 0;
-        padding: 0;
+        padding: 0px;
+        width: 100%;
     }
 }
 

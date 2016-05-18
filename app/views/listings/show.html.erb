@@ -7,7 +7,7 @@
             <ul id="lightSlider">
               <% @listing.images.each_index do |i| %>
                 <li>
-                  <%= image_tag @listing.images[i].url, class: "img-responsive pink-border" %>
+                  <%= image_tag @listing.images[i].url, class: "thumbnail" %>
                 </li>
               <% end %>
             </ul>
