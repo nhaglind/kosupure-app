@@ -53,7 +53,7 @@
                                         <%= f.label :ordered_amount, "Quantity to Purchase" %>
                                         <%= f.select :ordered_amount, (1..@listing.quantity), class: "form-control" %>
                                     </li>
-                                    <li class="list-group-item">Ruby details number 1.</li>
+                                    <li class="list-group-item">Total<div id="total"><%= number_to_currency(@listing.price) %></div></li>
                                     <li class="list-group-item">Ruby details number 2.</li>
                                     <li class="list-group-item">Ruby details number 3.</li>
                                     <li class="list-group-item">
@@ -78,3 +78,13 @@
         </div>
     </div>
 </div>
+
+    <script>
+    var currency = ($('.pull-right').text());
+    var number = Number(currency.replace(/[^0-9\.]+/g,""));
+    $("#order_ordered_amount").change(function() {
+    $(".pull-right").text(number);
+    $('#total').text(parseFloat($('.pull-right').text()) * parseFloat($('option:selected').text()))
+    });
+    var checkout_total = ($('#total').text());
+    </script>

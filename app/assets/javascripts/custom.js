@@ -5,3 +5,4 @@ jQuery(document).ready(function(){
              jQuery('.jumbotron').toggle('show');
         });
     });
+
