@@ -11,6 +11,7 @@
                 </li>
               <% end %>
             </ul>
+            <p><%= @listing.description %></p>
           </div>
           <script>
             $('#lightSlider').lightSlider({gallery: true, item: 1, loop: true, slideMargin: 0, thumbItem: 9});
@@ -27,9 +28,6 @@
                         <%= @listing.quantity %></li>
             <li class="list-group-item">Seller:
                         <%= @listing.user.name %></li>
-            <li class="list-group-item">Description:
-                        <%= @listing.description %></li>
-            <hr>
             <% if @listing.trade? %>
               <div class="jumbotron accepts__trades" alt="accepts trades"></div>
             <% end %>

@@ -42,6 +42,19 @@ a {
 
 .container-wrapper {
     padding: 30px;
+    max-width: 990px;
+    margin: auto;
+    margin: 28px auto 20px;
+    border: 1px solid #ececec;
+    border-bottom-color: #e2e2e2;
+    border-radius: 5px;
+    background-color: #fff;
+    padding: 28px;
+    padding-top: 28px;
+    padding-right: 28px;
+    padding-bottom: 28px;
+    padding-left: 28px;
+    position: relative;
 
     @media (max-width: 480px) {
         padding: 0px;
@@ -50,6 +63,7 @@ a {
 
 .panel {
     border-radius: 0px;
+    border: none;
 }
 
 .jumbotron {
@@ -517,6 +531,25 @@ $primary-color: #333;
 
     @media screen and (min-width: 600px) {
         flex-direction: row;
+    }
+}
+
+#lightSlider {
+    img {
+        width: auto;
+        max-width: 570px;
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+.demo {
+    p {
+        margin-top: 10px;
+        padding-top: 10px;
+        border-top: 1px solid #EFC7D7;
     }
 }
 
