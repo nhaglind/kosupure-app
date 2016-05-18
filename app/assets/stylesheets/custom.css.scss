@@ -41,21 +41,18 @@ a {
 }
 
 .container-wrapper {
-    padding: 30px;
-    max-width: 990px;
+    max-width: 1050px;
     margin: auto;
     margin: 28px auto 20px;
     border: 1px solid #ececec;
     border-bottom-color: #e2e2e2;
     border-radius: 5px;
     background-color: #fff;
-    padding: 28px;
     padding-top: 28px;
-    padding-right: 28px;
+    padding-right: 15px;
     padding-bottom: 28px;
-    padding-left: 28px;
+    padding-left: 15px;
     position: relative;
-
     @media (max-width: 480px) {
         padding: 0px;
     }
