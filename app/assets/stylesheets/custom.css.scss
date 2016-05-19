@@ -148,6 +148,11 @@ a {
   background: $secondary-pink;
 }
 
+.btn-seller:active, .btn-seller:focus, .btn-seller:active:focus {
+  outline: 0 none;
+  background: none;
+  box-shadow: none;
+}
 .btn-primary {
   background: $primary-pink;
   color: $primary-white;
