@@ -1,94 +1,95 @@
 <%= form_for @listing, :html => { :multipart => true } do |f| %>
-<% if @listing.errors.any? %>
-<div id="error_explanation" class="alert alert-danger alert-dismissable">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+  <% if @listing.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
-    </button>
-    <h4><%= pluralize(@listing.errors.count, "error") %>
+      </button>
+      <h4><%= pluralize(@listing.errors.count, "error") %>
         prohibited this listing from being saved:</h4>
-    <ul>
+      <ul>
         <% @listing.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+          <li><%= message %></li>
         <% end %>
-
-    </ul>
-</div>
-<% end %>
-<div id="stripe_error" class="alert alert-danger" style="display:none">
-    <noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
-</div>
-<div class="panel panel-default">
-    <div class="panel-body">
-        <div class="row">
-            <div class="col-md-12">
-                <section class="listing__form">
-                    <header>
-                        <h2>Create Listing!</h2>
-                        <p>We don't take any cuts, but please be aware of the standard
-                            <a href="https://stripe.com/us/pricing">Stripe</a>
-                            fees.</p>
-                    </header>
-                    <div class='form'>
-                        <form>
-                            <div class='field'>
-                                <%= f.label :title %>
-                                <%= f.text_field :name %>
-                            </div>
-                            <div class='field'>
-                                <%= f.label :description %>
-                                <%= f.text_field :description %>
-                            </div>
-                            <div class='field'>
-                                <%= f.label :price, "Price ($)" %>
-                                <%= f.text_field :price%>
-                            </div>
-                            <div class='field'>
-                                <%= f.label :quantity, "Quantity"%>
-                                <%= f.text_field :quantity %>
-                            </div>
-                            <div class='field'>
-                                <%= f.label :images, "Upload images:"%>
-                                <%= f.file_field :images, multiple: true, id: "avatar-upload" %>
-                                <img id="img_prev" width=300 height=300 src="#" alt="your image" class="img-thumbnail hidden"/>
-                                <script>
-                                    $(function () {
-                                        function readURL(input) {
-                                            if (input.files && input.files[0]) {
-                                                var reader = new FileReader();
-                                                reader.onload = function (e) {
-                                                    $('#img_prev').attr('src', e.target.result);
-                                                }
-                                                reader.readAsDataURL(input.files[0]);
-                                            }
-                                        }
-                                        $("#avatar-upload").change(function () {
-                                            $('#img_prev').removeClass('hidden');
-                                            readURL(this);
-                                        });
-                                    });
-                                </script>
-                            </div>
-                            <div class='field'>
-                              <%= f.label :category_id, "Category"%>
-                              <%= f.collection_select(:category_id, Category.all, :id, :name, prompt: true) %>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class='field'>
-                            <%= f.label :trade, "Accepts Trades?", class: "checkbox__trades" %>
-                            <%= f.check_box :trade, {}, 'true', 'false' %>
-                            <p>If you check this box, your email will be broadcast to allow you to communicate with purchasers to coordinate what you're willing to trade for.</p>
-                        </div>
-                        <hr>
-                    </form>
-
-                    <div class="form-group">
-                        <%= f.submit class: "btn btn-primary" %>
-                        <%= link_to 'Back', listings_path, class: "btn btn-primary" %>
-                    </div>
-                </form>
-            </section>
-        </div>
+      </ul>
     </div>
+  <% end %>
+  <div id="stripe_error" class="alert alert-danger" style="display:none">
+    <noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
+  </div>
+  <div class="container-wrapper">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-12">
+            <section class="listing__form">
+              <header>
+                <h2>Create Listing!</h2>
+                <p>We don't take any cuts, but please be aware of the standard
+                            <a href="https://stripe.com/us/pricing">Stripe</a>
+                  fees.</p>
+              </header>
+              <div class='form'>
+                <form>
+                  <div class='field'>
+                    <%= f.label :title %>
+                    <%= f.text_field :name %>
+                  </div>
+                  <div class='field'>
+                    <%= f.label :price, "Price ($)" %>
+                    <%= f.text_field :price%>
+                  </div>
+                  <div class='field'>
+                    <%= f.label :quantity, "Quantity"%>
+                    <%= f.text_field :quantity %>
+                  </div>
+                  <div class='field'>
+                    <%= f.label :images, "Upload images:"%>
+                    <%= f.file_field :images, multiple: true, id: "avatar-upload" %>
+                    <img id="img_prev" width=300 height=300 src="#" alt="your image" class="img-thumbnail hidden"/>
+
+                    <script>
+                      $(function() {
+                          function readURL(input) {
+                              if (input.files && input.files[0]) {
+                                  var reader = new FileReader();
+                                  reader.onload = function(e) {
+                                      $('#img_prev').attr('src', e.target.result);
+                                  }
+                                  reader.readAsDataURL(input.files[0]);
+                              }
+                          }
+                          $("#avatar-upload").change(function() {
+                              $('#img_prev').removeClass('hidden');
+                              readURL(this);
+                          });
+                      });
+                    </script>
+                    </div>
+                  <div class='field'>
+                    <%= f.label :category_id, "Category"%>
+                    <%= f.collection_select(:category_id, Category.all, :id, :name, prompt: true) %>
+                  </div>
+                </div>
+                <div class='field'>
+                  <%= f.label :description %>
+                  <%= f.text_field :description %>
+                </div>
+                <div class='field'>
+                  <%= f.label :trade, "Accepts Trades?", class: "checkbox__trades" %>
+                  <%= f.check_box :trade, {}, 'true', 'false' %>
+                  <p>If you check this box, your email will be broadcast to allow you to communicate with purchasers to coordinate what you're willing to trade for.</p>
+                </div>
+                <hr>
+              </form>
+              <div class="form-group">
+                <%= f.submit class: "btn btn-primary" %>
+                <%= link_to 'Back', listings_path, class: "btn btn-primary" %>
+              </div>
+            </form>
+          </section>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</section>
 </div>
-<% end %>

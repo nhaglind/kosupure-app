@@ -32,6 +32,17 @@ ul {
   margin: 0;
 }
 
+a {
+  color: $primary-pink;
+  &:hover {
+    color: $primary-purple;
+    text-decoration: none;
+  }
+  &:active {
+    text-decoration: none;
+  }
+}
+
 .container {
   width: 100%;
   padding: 0;
@@ -256,6 +267,7 @@ input#listing_trade {
   clear: both;
 }
 
+
 .form .field {
   width: 50%;
   padding: 20px 20px 5px;
@@ -275,6 +287,14 @@ input#listing_trade {
   font-weight: 600;
   text-transform: uppercase;
 }
+
+.form .field .text_field {
+  color: #a1a1a1;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
 
 .form .field input {
   outline: none;
