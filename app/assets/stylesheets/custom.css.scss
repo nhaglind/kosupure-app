@@ -325,6 +325,21 @@ input#listing_trade {
   border-bottom: 0;
 }
 
+#new_listing > div.container-wrapper > div > div > div > div > section > div.field {
+  padding: 20px;
+}
+
+#new_listing > div.container-wrapper > div > div > div > div > section > div.form-group > input {
+  width: 100%;
+  border-radius: 0;
+  margin-bottom: 10px;
+}
+
+#new_listing > div.container-wrapper > div > div > div > div > section > div.field {
+  border: 1px solid #e5e5e5;
+  background-color: rgba(245, 157, 200, 0.06);
+}
+
 .pagination > li > a, .pagination > li > span {
   color: $primary-pink;
 }
