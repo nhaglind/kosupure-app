@@ -254,9 +254,11 @@ input#listing_trade {
   padding: 0;
 }
 
+
 .form {
   background: $primary-white;
   border: 1px solid $secondary-white;
+  border-bottom: none;
   border-radius: 5px;
 }
 
@@ -310,6 +312,7 @@ input#listing_trade {
   -moz-osx-font-smoothing: grayscale;
   transition: .3s linear;
 }
+
 
 .pagination > li > a, .pagination > li > span {
   color: $primary-pink;
