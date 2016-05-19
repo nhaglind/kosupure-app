@@ -152,7 +152,6 @@ a {
   background: $secondary-pink;
 }
 
-
 .btn-link:active, .btn-link:hover, .btn-link:focus, .btn-link:active:focus{
   outline: 0 none;
   background: none;
@@ -672,4 +671,8 @@ thead {
   border: none;
   display: block;
   margin: auto;
+}
+
+.navbar-default .navbar-toggle {
+  border: none;
 }
