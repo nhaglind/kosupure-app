@@ -46,7 +46,12 @@
                     <%= f.label :quantity, "Quantity"%>
                     <%= f.text_field :quantity %>
                   </div>
-                  <div class='field'>
+                  
+                  <div class='field category-table'>
+                    <%= f.label :category_id, "Category"%>
+                    <%= f.collection_select(:category_id, Category.all, :id, :name, prompt: true) %>
+                  </div>
+                  <div class='field upload-image'>
                     <%= f.label :images, "Upload images:"%>
                     <%= f.file_field :images, multiple: true, id: "avatar-upload" %>
                     <img id="img_prev" width=300 height=300 src="#" alt="your image" class="img-thumbnail hidden"/>
@@ -68,12 +73,7 @@
                       });
                     </script>
                   </div>
-                  <div class='field'>
-                    <%= f.label :category_id, "Category"%>
-                    <%= f.collection_select(:category_id, Category.all, :id, :name, prompt: true) %>
-                  </div>
                 </div>
-                <hr>
                 <div class='field'>
                   <%= f.label :trade, "Accepts Trades?", class: "checkbox__trades" %>
                   <%= f.check_box :trade, {}, 'true', 'false' %>
