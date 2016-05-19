@@ -221,129 +221,6 @@ section {
   }
 }
 
-.listing__form {
-  font-family: $font-content;
-  font-size: 14px;
-  font-weight: 400;
-  margin: 80px 20px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  header {
-    h2 {
-      color: #333;
-      font-size: 22px;
-      font-weight: 300;
-      line-height: 24px;
-      margin: 0 0 15px;
-      padding: 0;
-    }
-
-    p {
-      color: $primary-grey;
-      margin: 0 0 35px;
-    }
-  }
-}
-
-input#listing_trade {
-  margin: 10px;
-}
-
-.checkbox__trades {
-  color: #333;
-  font-weight: 300;
-  line-height: 24px;
-  margin: 0 0 15px;
-  padding: 0;
-}
-
-.form {
-  background: $primary-white;
-  border: 1px solid $secondary-white;
-  border-bottom: none;
-  border-radius: 5px;
-  margin-bottom: 10px;
-}
-
-.form::after,
-.form::before {
-  content: '';
-  display: block;
-  clear: both;
-}
-
-.form .field {
-  width: 50%;
-  padding: 20px 20px 5px;
-  border-bottom: 1px solid $secondary-white;
-  box-sizing: border-box;
-  float: left;
-  transition: .3s linear;
-}
-
-.form .field:nth-child(2n) {
-  border-left: 1px solid $secondary-white;
-}
-
-.form .field label {
-  color: #a1a1a1;
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-}
-
-.form .field .text_field {
-  color: #a1a1a1;
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-}
-
-.form .field input {
-  outline: none;
-  background: none;
-  width: 100%;
-  border: 0;
-  padding: 5px 0;
-  color: $primary-grey;
-  font-family: $font-content;
-  font-size: 16px;
-  font-weight: 600;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  transition: .3s linear;
-}
-
-#listing_category_id {
-  border: 1px;
-}
-
-#new_listing > div.container-wrapper > div > div > div > div > section > div.form > div.field.upload-image {
-  width: 100%;
-  border: 1px solid $secondary-white;
-  border-left: 0;
-  border-right: 0;
-}
-
-#new_listing > div.container-wrapper > div > div > div > div > section > div.form > div.field.category-table {
-  border-bottom: 0;
-}
-
-#new_listing > div.container-wrapper > div > div > div > div > section > div.field {
-  padding: 20px;
-}
-
-#new_listing > div.container-wrapper > div > div > div > div > section > div.form-group > input {
-  width: 100%;
-  border-radius: 0;
-  margin-bottom: 10px;
-}
-
-#new_listing > div.container-wrapper > div > div > div > div > section > div.field {
-  border: 1px solid #e5e5e5;
-  background-color: rgba(245, 157, 200, 0.06);
-}
 
 .pagination > li > a, .pagination > li > span {
   color: $primary-pink;
@@ -697,4 +574,79 @@ thead {
   th {
     font-weight: 100;
   }
+}
+
+.listing-form {
+  margin: 2rem 0;
+  
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+  
+  .field {
+    display: block;
+    border: 1px solid #BDBDBD;
+    float: left;
+    width: 100%;
+    
+    select,
+    .category {
+      margin-top: 26px;
+    }
+
+    &.tnb {
+      border-top: 0;
+    }
+    
+    &.half {
+      width: 50%;
+    }
+    
+    &.last {
+      border-left: 0;
+    }
+    
+    label {
+      display: block;
+      font-size: 1.2rem;
+      padding: 1.5rem 2rem 0;
+      text-transform: uppercase;
+      color: #999;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    
+    select,
+    input,
+    textarea {
+      display: block;
+      width: 100%;
+      padding: .5rem 2rem 1.5rem;
+      font-size: 1.8rem;
+      border: 0;
+      color: #212121;
+      outline: 0;
+    }
+  
+    #listing_description {
+      min-height: 150px;
+      resize:vertical; 
+    }
+    input[type='checkbox'] {
+      float: left;
+      width: 20px;
+      margin-left: 20px;
+    }
+    p {
+      margin-left: 50px;
+    }
+  }
+}
+
+.submission {
+  width: 100%;
+  height: 40px;
+  border-radius: 0;
 }
