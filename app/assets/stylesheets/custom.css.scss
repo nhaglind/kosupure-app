@@ -152,6 +152,14 @@ a {
   background: $secondary-pink;
 }
 
+
+.btn-link:active, .btn-link:hover, .btn-link:focus, .btn-link:active:focus{
+  outline: 0 none;
+  background: none;
+  box-shadow: none;
+  text-decoration: none;
+}
+
 .btn-seller:active, .btn-seller:focus, .btn-seller:active:focus {
   outline: 0 none;
   background: none;
