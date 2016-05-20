@@ -1,20 +1,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
-$font-stack: Arial, Helvetica, sans-serif;
-$font-content: "proxima-nova", sans-serif;
-$font-brand: guardian-egyptt, georgia, serif;
-$site-background-color: #f5f5f1;
-$primary-pink: #f492c2;
-$secondary-pink: #f48fb1;
-$pink-border: #EFC7D7;
-$primary-purple: #31294e;
-$secondary-purple: #94405d;
-$primary-white: #fff;
-$secondary-white: #e5e5e5;
-$primary-grey: #666;
-$primary-black: #333;
-$table-cell-padding: 1.6rem;
+@import "modules/all";
+@import "partials/base";
+@import "vendor/lightslider";
 
 body {
   background-color: $site-background-color;
@@ -42,166 +30,6 @@ a {
   &:active {
     text-decoration: none;
   }
-}
-
-.container {
-  width: 100%;
-  padding: 0;
-
-  .jumbotron {
-    border-radius: 0;
-  }
-}
-
-.container-wrapper {
-  max-width: 1050px;
-  margin: auto;
-  margin: 28px auto 20px;
-  border-radius: 5px;
-  background-color: $primary-white;
-  padding-top: 28px;
-  padding-right: 15px;
-  padding-bottom: 28px;
-  padding-left: 15px;
-  position: relative;
-
-  @media (max-width: 480px) {
-    padding: 0;
-  }
-}
-
-.edit {
-  margin-bottom: -20px;
-}
-
-.panel {
-  border-radius: 0;
-  border: 0;
-  background-color: $primary-white;
-  box-shadow: none;
-}
-
-.jumbotron {
-  background-image: url("https://www.dropbox.com/s/bwh8hb5hm9e9rh8/anime_banner.jpg?raw=1");
-  background-size: cover;
-  border-radius: 0;
-  margin-bottom: 0;
-  background-repeat: no-repeat;
-
-  h1 {
-    color: $primary-purple;
-  }
-
-  h2 {
-    color: $primary-pink;
-  }
-}
-
-.listing {
-  margin: 0 10px;
-
-  .bold-price {
-    font-weight: bold;
-    font-size: 20px;
-  }
-
-  .thumbnail {
-    padding: 0;
-    border: 0;
-    margin: 0;
-  }
-}
-
-.caption a {
-  color: $primary-pink;
-}
-
-.navbar-default {
-  margin-bottom: 0;
-  border-radius: 0;
-  border-right: 0;
-}
-
-.navbar-default .navbar-brand {
-  font-family: $font-brand;
-  font-weight: 400;
-  color: $secondary-pink;
-  font-size: 30px;
-}
-
-.navbar-default .navbar-nav > li > a {
-  font-family: $font-stack;
-  font-size: 14px;
-  font-weight: 100;
-  color: $secondary-pink;
-}
-
-.btn {
-  font-family: $font-content;
-  padding: 6px 12px;
-  border: 0 none;
-  font-weight: 300;
-  font-size: 14px;
-  letter-spacing: 1px;
-  color: $primary-pink;
-  text-transform: uppercase;
-}
-
-.btn:focus, .btn:active:focus, .btn.active:focus {
-  outline: 0 none;
-  background: $secondary-pink;
-}
-
-.btn-link:active, .btn-link:hover, .btn-link:focus, .btn-link:active:focus{
-  outline: 0 none;
-  background: none;
-  box-shadow: none;
-  text-decoration: none;
-}
-
-.btn-seller:active, .btn-seller:focus, .btn-seller:active:focus {
-  outline: 0 none;
-  background: none;
-  box-shadow: none;
-}
-.btn-primary {
-  background: $primary-pink;
-  color: $primary-white;
-}
-
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
-  background: $secondary-purple;
-}
-
-.btn-primary:active, .btn-primary.active {
-  background: $secondary-purple;
-  box-shadow: none;
-}
-
-.list-group {
-  list-style: none;
-
-  li {
-    border: 1px solid $pink-border;
-  }
-}
-
-.accepts__trades {
-  background-image: url("https://www.dropbox.com/s/hr04f58uh8pcowb/accept_trades.jpg?raw=1");
-  background-size: cover;
-}
-
-.label__default {
-  background-color: #EBB0C4;
-  display: block;
-  padding: 5px;
-  font-size: 1em;
-}
-
-.seller_hero {
-  background-image: url("https://www.dropbox.com/s/bwh8hb5hm9e9rh8/anime_banner.jpg?raw=1");
-  width: 100%;
-  height: 200px;
 }
 
 section {
@@ -232,37 +60,12 @@ section {
   }
 }
 
+thead {
+  background-color: rgba(244, 146, 194, 0.18);
 
-.pagination > li > a, .pagination > li > span {
-  color: $primary-pink;
-}
-
-.pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus, .pagination > .active > span, .pagination > .active > span:hover, .pagination > .active > span:focus {
-  background-color: $primary-pink;
-  border-color: $primary-pink;
-}
-
-.pagination > li > a:hover {
-  color: $primary-pink;
-}
-
-.caption {
-  h3 {
-    font-size: 17px;
-    margin: 2px;
+  th {
+    font-weight: 100;
   }
-}
-
-.center {
-  text-align: center;
-}
-
-.pink-border {
-  border: 1px solid $pink-border;
-}
-
-.no-border {
-  border: 0;
 }
 
 footer {
@@ -270,205 +73,32 @@ footer {
   padding-bottom: 20px;
 }
 
-*,
-*::before,
-*::after {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+.edit {
+  margin-bottom: -20px;
 }
 
-.navbar::before,
-.navbar::after,
-.navbar-container::before,
-.navbar-container::after,
-.navbar-button::before,
-.navbar-button::after,
-.navbar-search::before,
-.navbar-search::after {
-  display: table;
-  content: "";
+.accepts__trades {
+  background-image: url("https://www.dropbox.com/s/hr04f58uh8pcowb/accept_trades.jpg?raw=1");
+  background-size: cover;
 }
 
-.navbar::after,
-.navbar-container::after,
-.navbar-button::after,
-.navbar-search::after {
-  clear: both;
-}
-
-.navbar-search {
-  height: 60px;
-  border: 0;
-}
-
-@media (min-width: 480px) {
-  .navbar-button {
-    float: right;
-    width: 20%;
-  }
-
-  .navbar-search {
-    float: right;
-    width: 80%;
-  }
-}
-
-.navbar-search {
-  padding: 12px;
-  background-color: #f5f5f5;
-  border: 1px solid #ddd;
-}
-
-.search-form {
-  position: relative;
-}
-
-.search-form > input[type="text"] {
+.label__default {
+  background-color: #EBB0C4;
   display: block;
-  width: 100%;
-  height: 34px;
-  padding: 6px 73px 6px 8px;
-  font-size: 14px;
-  font-weight: normal;
-  line-height: 1.4;
-  color: #333;
-  background-color: $primary-white;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.search-form > input[type="text"]:focus {
-  outline: 0;
-  border-color: #aaa;
-}
-
-.search-form > input[type="submit"] {
-  position: absolute;
-  top: 0;
-  right: -1px;
-  bottom: 0;
-  padding: 6px 8px;
-  font-size: 14px;
-  font-weight: bold;
-  line-height: 1.4;
-  color: $primary-white;
-  background-color: #555;
-  border: 1px solid #555;
-  border-top-right-radius: 4px;
-  border-bottom-right-radius: 4px;
-}
-
-.search-form > input[type="submit"]:hover,
-.search-form > input[type="submit"]:focus {
-  background-color: #333;
-  border-color: #333;
-}
-
-.search-form > input[type="submit"]:focus {
-  outline: 0;
-}
-
-.navbar-button {
   padding: 5px;
-  border-radius: 0;
-  border-right: 0;
+  font-size: 1em;
 }
 
-.navbar-btn {
-  display: block;
-  padding: 4px 12px;
-  overflow: hidden;
-  font-size: 16px;
-  font-weight: 300;
-  line-height: 1.4;
-  color: #333;
-  text-align: center;
-  text-overflow: ellipsis;
-  text-decoration: none;
-  white-space: nowrap;
-  background-color: #fcfcfc;
-  border: 1px solid #cacaca;
-  border-radius: 4px;
-  margin-right: 10px;
+.seller_hero {
+  background-image: url("https://www.dropbox.com/s/bwh8hb5hm9e9rh8/anime_banner.jpg?raw=1");
+  width: 100%;
+  height: 200px;
 }
 
-.navbar-btn:hover,
-.navbar-btn:focus {
-  text-decoration: none;
-}
-
-.navbar-btn:hover {
-  background-color: #eee;
-}
-
-.navbar-btn:focus {
-  outline: 0;
-}
-
-.navbar-btn:active {
-  background-image: none;
-  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-}
-
-@media (min-width: 480px) {
-  .navbar-search {
-    border-width: 1px 0;
-  }
-
-  .navbar-button {
-    background-color: #f5f5f5;
-    border: 1px solid #ddd;
-    border-left-width: 0;
-    border-right: 0;
-  }
-}
-
-@media (max-width: 479px) {
-  .navbar-search {
-    border-width: 1px 1px 0 1px;
-    border-top-right-radius: 4px;
-    border-top-left-radius: 4px;
-  }
-}
-
-$primary-color: #333;
-
-.flex-menu {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  text-align: center;
-  margin: 0;
-
-  li {
-    width: 100%;
-    font-size: .8em;
-  }
-
-  a {
-    color: white;
-    display: block;
-    text-decoration: none;
-    padding: 1em;
-    background: $secondary-pink;
-    transition: .5s;
-
-    &:hover {
-      background: lighten($primary-color, 6%);
-    }
-  }
-
-  @media screen and (min-width: 600px) {
-    flex-direction: row;
-  }
-}
-
-#lightSlider {
-  img {
-    margin: 0;
-    padding: 0;
-    width: 100%;
+.caption {
+  h3 {
+    font-size: 17px;
+    margin: 2px;
   }
 }
 
@@ -500,16 +130,12 @@ $primary-color: #333;
   }
 }
 
-.glyphicon {
-  margin-right: 5px;
-}
-
 .item.list-group-item {
   float: none;
   width: 100%;
   background-color: $primary-white;
   border: 0;
-  padding: none;
+  padding: 0;
 
   img {
     float: left;
@@ -579,81 +205,8 @@ $primary-color: #333;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
 }
 
-thead {
-  background-color: rgba(244, 146, 194, 0.18);
-
-  th {
-    font-weight: 100;
-  }
-}
-
-.listing-form {
-  margin: 2rem 0;
-  
-  &:after {
-    content: '';
-    display: table;
-    clear: both;
-  }
-  
-  .field {
-    display: block;
-    border: 1px solid #BDBDBD;
-    float: left;
-    width: 100%;
-    
-    select,
-    .category {
-      margin-top: 26px;
-    }
-
-    &.tnb {
-      border-top: 0;
-    }
-    
-    &.half {
-      width: 50%;
-    }
-    
-    &.last {
-      border-left: 0;
-    }
-    
-    label {
-      display: block;
-      font-size: 1.2rem;
-      padding: 1.5rem 2rem 0;
-      text-transform: uppercase;
-      color: #999;
-      font-weight: 700;
-      letter-spacing: 1px;
-    }
-    
-    select,
-    input,
-    textarea {
-      display: block;
-      width: 100%;
-      padding: .5rem 2rem 1.5rem;
-      font-size: 1.8rem;
-      border: 0;
-      color: #212121;
-      outline: 0;
-    }
-  
-    #listing_description {
-      min-height: 150px;
-      resize:vertical; 
-    }
-    input[type='checkbox'] {
-      float: left;
-      width: 20px;
-      margin-left: 20px;
-    }
-    p {
-      margin-left: 50px;
-    }
-  }
+.caption a {
+  color: $primary-pink;
 }
 
 .submission {
@@ -668,11 +221,15 @@ thead {
 
 #img_prev {
   margin: 10px;
-  border: none;
+  border: 0;
   display: block;
   margin: auto;
 }
 
-.navbar-default .navbar-toggle {
-  border: none;
+#lightSlider {
+  img {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
 }

@@ -1,0 +1,70 @@
+.listing-form {
+  margin: 2rem 0;
+
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+
+  .field {
+    display: block;
+    border: 1px solid #BDBDBD;
+    float: left;
+    width: 100%;
+
+    select,
+    .category {
+      margin-top: 26px;
+    }
+
+    &.tnb {
+      border-top: 0;
+    }
+
+    &.half {
+      width: 50%;
+    }
+
+    &.last {
+      border-left: 0;
+    }
+
+    label {
+      display: block;
+      font-size: 1.2rem;
+      padding: 1.5rem 2rem 0;
+      text-transform: uppercase;
+      color: #999;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    select,
+    input,
+    textarea {
+      display: block;
+      width: 100%;
+      padding: .5rem 2rem 1.5rem;
+      font-size: 1.8rem;
+      border: 0;
+      color: #212121;
+      outline: 0;
+    }
+
+    #listing_description {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    input[type='checkbox'] {
+      float: left;
+      width: 20px;
+      margin-left: 20px;
+    }
+
+    p {
+      margin-left: 50px;
+    }
+  }
+}

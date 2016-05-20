@@ -1,0 +1,45 @@
+@import "modules/colors";
+@import "typography";
+
+.btn {
+  font-family: $font-content;
+  padding: 6px 12px;
+  border: 0 none;
+  font-weight: 300;
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: $primary-pink;
+  text-transform: uppercase;
+}
+
+.btn:focus, .btn:active:focus, .btn.active:focus {
+  outline: 0 none;
+  background: $secondary-pink;
+}
+
+.btn-link:active, .btn-link:hover, .btn-link:focus, .btn-link:active:focus {
+  outline: 0 none;
+  background: none;
+  box-shadow: none;
+  text-decoration: none;
+}
+
+.btn-seller:active, .btn-seller:focus, .btn-seller:active:focus {
+  outline: 0 none;
+  background: none;
+  box-shadow: none;
+}
+
+.btn-primary {
+  background: $primary-pink;
+  color: $primary-white;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+  background: $secondary-purple;
+}
+
+.btn-primary:active, .btn-primary.active {
+  background: $secondary-purple;
+  box-shadow: none;
+}

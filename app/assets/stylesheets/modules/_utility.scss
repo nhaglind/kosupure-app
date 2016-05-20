@@ -1,0 +1,24 @@
+@import "colors";
+
+.center {
+  text-align: center;
+}
+
+.pink-border {
+  border: 1px solid $pink-border;
+}
+
+.no-border {
+  border: 0;
+}
+
+.glyphicon {
+  margin-right: 5px;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
