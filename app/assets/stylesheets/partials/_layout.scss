@@ -60,6 +60,16 @@
   }
 }
 
+.sort {
+  a:hover {
+    background-color: rgb(70, 66, 66);
+    padding: 12px 10px;
+  }
+  a:focus {
+    text-decoration: none;
+  }
+}
+
 .list-group {
   list-style: none;
 
