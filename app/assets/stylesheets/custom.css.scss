@@ -37,11 +37,14 @@ section {
   font-size: 14px;
   font-weight: 300;
 
+  h2, h3, h4 {
+    font-weight: 300;
+  }
+
   header {
     text-align: center;
 
     h2 {
-      font-size: 22px;
       font-weight: 300;
       line-height: 24px;
       margin: 15px;
