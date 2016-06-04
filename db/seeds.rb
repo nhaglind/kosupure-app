@@ -10,14 +10,12 @@ require 'faker'
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 
 #create some categories
-10.times do 
-	Category.create(name: Faker::Commerce.department) 
+["Costumes", "Wigs", "Shoes", "Materials", "Props", "Accessories"].each do |x|
+  Category.create(name: x)
 end
 
 #create some sub categories
-20.times do 
-	Category.create(name: Faker::Commerce.department, parent_id: Faker::Number.between(1, 10)) 
-end
+
 
 #create some users
 100.times do |i|
@@ -32,5 +30,5 @@ end
 												quantity: Faker::Number.between(1,10),
 												trade: Faker::Boolean.boolean,
 												user_id: Faker::Number.between(1,100),
-												category_id: Faker::Number.between(1,30))
+												category_id: Faker::Number.between(1,6))
 end
