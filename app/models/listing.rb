@@ -10,19 +10,11 @@ class Listing < ActiveRecord::Base
   has_many :orders
 
   scope :no_zeroes, -> { where("quantity > 0") }
-  scope :paginate_default, ->  (page) { paginate(:page => page, :per_page => 12) }
-
-  def self.order_default(order = "created_at DESC")
-    if order.nil?
-      order("created_at DESC")
-    else
-      order(order)
-    end
-  end
-
-  def self.search(keyword)
-  	where("name ILIKE ? OR description ILIKE ?", "%#{keyword}%", "%#{keyword}%")
-  end
+  scope :keyword, -> (keyword) { where("name ILIKE ? OR description ILIKE ?", "%#{keyword}%", "%#{keyword}%") }
+  scope :category, -> (category) { where category_id: category }
+  scope :ordering, -> (order = "created_at DESC") { order(order) }
+  scope :named, -> (name) { where(user: name) }
+  # scope :paging, ->  (page) { paginate(:page => page, :per_page => 12) }
 
   def to_param
   	[id, name.parameterize].join("-")

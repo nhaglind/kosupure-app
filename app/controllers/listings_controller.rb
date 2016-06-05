@@ -10,18 +10,24 @@ class ListingsController < ApplicationController
   # GET /listings
   # GET /listings.json
   def index
-    if params[:search]
-      @listings = Listing.no_zeroes.search(params[:search]).paginate_default(params[:page]).order_default(params[:order])
-    elsif params[:name]
-      @listings = Listing.no_zeroes.where(user: params[:name]).paginate_default(params[:page]).order_default(params[:order])
-    elsif params[:category]
-      @category_id = [params[:category]]
-      @subcategories = Category.find_all_heirs(@category_id)
-      @listings = Listing.no_zeroes.where(category_id: @category_id + @subcategories).paginate_default(params[:page]).order_default(params[:order])
-    else
-      @listings = Listing.all.no_zeroes.paginate_default(params[:page]).order_default(params[:order])
+    @listings = Listing.all.no_zeroes
+    filtering_params(params).each do |key, value|
+      @listings = @listings.public_send(key, value) if value.present?
     end
+    @listings = @listings.paginate(:page => params[:page], :per_page => 12)
 
+    #if params[:search]
+    #  @listings = Listing.no_zeroes.search(params[:search]).paginate_default(params[:page]).order_default(params[:order])
+    #elsif params[:name]
+    #  @listings = Listing.no_zeroes.where(user: params[:name]).paginate_default(params[:page]).order_default(params[:order])
+    #elsif params[:category]
+    #  @category_id = [params[:category]]
+    #  @subcategories = Category.find_all_heirs(@category_id)
+    #  @listings = Listing.no_zeroes.where(category_id: @category_id + @subcategories).paginate_default(params[:page]).order_default(params[:order])
+    #else
+    #  @listings = Listing.all.no_zeroes.paginate_default(params[:page]).order_default(params[:order])
+    #end
+    #@listings = @listings
   end
 
   # GET /listings/1
@@ -92,6 +98,10 @@ class ListingsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
       params.require(:listing).permit(:name, :description, :price, :quantity, :trade, {images: []}, :category_id)
+    end
+
+    def filtering_params(params)
+      params.slice(:ordering, :page, :keyword, :category, :named)
     end
 
     def check_user

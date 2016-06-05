@@ -11,8 +11,9 @@
     </div>
     
     <div class="navbar-search">
-      <%= form_tag("/listings", method: "get", class: "search-form") do %>
-        <%= text_field_tag(:search, params[:search]) %>
+      <%= form_tag(listings_path , method: "get", class: "search-form") do %>
+        <%= text_field_tag(:keyword, params[:keyword], placeholder: search_placeholder ) %>
+        <%= hidden_category %>
         <%#= select_tag(:category, options_from_collection_for_select(Category.only_parents, "id", "name")) %>
         <%= submit_tag("Search", :name => nil) %>
       <% end %>
@@ -20,20 +21,20 @@
   </div>
   <div class="sort">
     <i class="glyphicon glyphicon-sort"></i>
-    <%= link_to "Highest Price", params.merge(order: "price DESC") %>
-    <%= link_to "Lowest Price", params.merge(order: "price ASC") %>
-    <%= link_to "Most Recent", params.merge(order: "created_at DESC") %>
+    <%= link_to "Highest Price", params.merge(ordering: "price DESC") %>
+    <%= link_to "Lowest Price", params.merge(ordering: "price ASC") %>
+    <%= link_to "Most Recent", params.merge(ordering: "created_at DESC") %>
   </div>
   <ul class="flex-menu">
     <% if params[:category].blank? %>
       <% Category.only_parents.each do |category| %>
         <li>
-          <%= link_to category.name, listings_path(category: category) %></li>
+          <%= link_to "#{category.name} #{category_count(category)}", params.merge(category: category) %></li>
       <% end %>
     <% else %>
       <% c = Category.find_by_id(params[:category]) %>
       <li>
-        <%= link_to "Up One Level", listings_path(category: c.parent_id) %>
+        <%= link_to "Up One Level", params.merge(category: c.parent_id) %>
       </li>
       <li>
         <a><%= c.name %>
@@ -67,7 +68,7 @@
                 <div class="card-block">
                   <h4 class="card-title"><%= link_to listing.name, listing %></h4>
                   <p class="card-text"><%= number_to_currency(listing.price, locale: "en") %></p>
-                  <p class="card-text"><%= link_to "Sold by #{listing.user.name}", listings_path(name: listing.user) %></p>
+                  <p class="card-text"><%= link_to "Sold by #{listing.user.name}", listings_path(named: listing.user) %></p>
                 </div>
               </div>
             </div>
