@@ -12,12 +12,15 @@
 }
 
 .navbar-default .navbar-brand {
-  font-family: $font-brand;
+  font-family: $font-logo;
   font-weight: 400;
   color: $secondary-pink;
-  font-size: 30px;
+  font-size: 36px;
 }
 
+.logo {
+  font-family: $font-logo;
+}
 .navbar-default .navbar-nav > li > a {
   font-family: $font-stack;
   font-size: 14px;

@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-md-12">
                 <section class="seller">
-                  <header>
+                  <header class="user-entry">
                     <h2>Sign up</h2>
                   </header>
 
@@ -13,12 +13,12 @@
 
                     <div class="form-group">
                         <%= f.label :name %>
-                        <%= f.text_field :name, :autofocus => true, class: "form-control" %>
+                        <%= f.text_field :name, placeholder: name_placeholder, :autofocus => true, class: "form-control" %>
                     </div>
 
                     <div class="form-group">
                         <%= f.label :email %>
-                        <%= f.email_field :email, class: "form-control" %>
+                        <%= f.email_field :email, placeholder: "noticemesenpai@onichanmail.com", class: "form-control" %>
                     </div>
 
                     <div class="form-group">
