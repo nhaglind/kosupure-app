@@ -34,8 +34,10 @@ a {
 
 section {
   font-family: $font-content;
+
   header {
     text-align: center;
+
     p {
       color: $primary-grey;
     }
@@ -211,5 +213,21 @@ footer {
   }
 }
 
+#categories {
+  padding: 0px;
+  margin: 0px;
+}
 
+body > div.container > nav > div.navbar-header {
+  background-color: $primary-pink;
+}
 
+body > div.container > nav > div.navbar-header > button {
+  float: none;
+  margin: 0px;
+}
+
+body > div.container > nav > div.navbar-header > button > p {
+  color: $primary-white;
+  margin: 0px;
+}

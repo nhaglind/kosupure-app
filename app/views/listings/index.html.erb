@@ -5,11 +5,9 @@
 </div>
 <nav class="navbar no-border">
   <div class="navbar-container">
-
     <div class="navbar-button">
       <a href="#" class="navbar-btn"><i class="fa fa-heart"></i>Feeling lucky punk?</a>
     </div>
-    
     <div class="navbar-search">
       <%= form_tag(listings_path , method: "get", class: "search-form") do %>
         <%= text_field_tag(:keyword, params[:keyword], placeholder: search_placeholder ) %>
@@ -25,34 +23,42 @@
     <%= link_to "Lowest Price", params.merge(ordering: "price ASC") %>
     <%= link_to "Most Recent", params.merge(ordering: "created_at DESC") %>
   </div>
-  <ul class="flex-menu">
-    <% if params[:category].blank? %>
-      <% Category.only_parents.each do |category| %>
-        <li>
-          <%= link_to "#{category.name} #{category_count(category)}", params.merge(category: category) %></li>
-      <% end %>
-    <% else %>
-      <% c = Category.find_by_id(params[:category]) %>
-      <li>
-        <%= link_to "Up One Level", params.merge(category: c.parent_id) %>
-      </li>
-      <li>
-        <a><%= c.name %>
-          <i class="glyphicon glyphicon-play"></i>
-        </a>
-      </li>
-      <% Category.sub_display(params[:category]).each do |category| %>
-        <li>
-          <%= link_to category.name, listings_path(category: category) %>
+  <div class="navbar-header">           
+  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#categories">
+      <p>Categories</p>
+  </button>
+  </div>
+  <div class="collapse navbar-collapse" id="categories">
+    <ul class="flex-menu">
+      <% if params[:category].blank? %>
+        <% Category.only_parents.each do |category| %>
+          <li>
+            <%= link_to "#{category.name} #{category_count(category)}", params.merge(category: category) %></li>
         <% end %>
-      <% end %>
-    </li>
-  </ul>
+      <% else %>
+        <% c = Category.find_by_id(params[:category]) %>
+        <li>
+          <%= link_to "Up One Level", params.merge(category: c.parent_id) %>
+        </li>
+        <li>
+          <a><%= c.name %>
+            <i class="glyphicon glyphicon-play"></i>
+          </a>
+        </li>
+        <% Category.sub_display(params[:category]).each do |category| %>
+          <li>
+            <%= link_to category.name, listings_path(category: category) %>
+          <% end %>
+        <% end %>
+      </li>
+    </ul>
+  </div>
 </div>
 </nav>
 <%# Category.only_parents.each do |category| %>
   <%#= link_to category.name, params.merge(category: category.name) %>
   <%# end %>
+</div>
 </div>
 <div class="container-wrapper">
   <section class="listing">
