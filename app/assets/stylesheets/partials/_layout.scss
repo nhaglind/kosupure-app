@@ -10,13 +10,8 @@
   margin: auto;
   margin: 28px auto 20px;
   border-radius: 5px;
-  background-color: $primary-white;
-  padding-top: 28px;
-  padding-right: 15px;
-  padding-bottom: 28px;
-  padding-left: 15px;
+  padding: 28px 15px;
   position: relative;
-
   @media (max-width: 480px) {
     padding: 0;
   }
@@ -70,6 +65,7 @@
     background-color: rgb(70, 66, 66);
     padding: 12px 10px;
   }
+
   a:focus {
     text-decoration: none;
   }
@@ -88,9 +84,9 @@
   height: auto;
   border-radius: 5px;
 }
+
 .cta {
   background-color: $primary-pink;
-  border-radius: 5px;
   p {
     color: $primary-white;
     font-size: 1.5em;
@@ -99,26 +95,24 @@
 }
 
 .user-entry {
-  margin: -15px 0px 15px 0px;
   background-color: $primary-pink;
   border-radius: 5px;
-  padding: 20px;;
-  h2 {
-      color: $primary-white;
+  padding: 10px;
+  margin-bottom: 10px;
 
+  h2 {
+    color: $primary-white;
   }
 }
 
-@media screen and (max-width: 480px)  {
+@media screen and (max-width: 480px) {
   .user-entry {
     margin-top: 5px;
   }
 }
 
-@media screen and (max-width: 990px)  {
+@media screen and (max-width: 990px) {
   body > div > div > div > div > div > div:nth-child(2) {
     margin-bottom: 10px;
   }
 }
-
-
