@@ -18,7 +18,6 @@
     </div>
   </div>
   <div class="sort">
-    <i class="glyphicon glyphicon-sort"></i>
     <%= link_to "Highest Price", params.merge(ordering: "price DESC") %>
     <%= link_to "Lowest Price", params.merge(ordering: "price ASC") %>
     <%= link_to "Most Recent", params.merge(ordering: "created_at DESC") %>
@@ -41,9 +40,7 @@
           <%= link_to "Up One Level", params.merge(category: c.parent_id) %>
         </li>
         <li>
-          <a><%= c.name %>
-            <i class="glyphicon glyphicon-play"></i>
-          </a>
+          <a><%= c.name %></a>
         </li>
         <% Category.sub_display(params[:category]).each do |category| %>
           <li>

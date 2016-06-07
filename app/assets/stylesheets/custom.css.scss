@@ -92,7 +92,7 @@ footer {
 .sort {
   text-align: right;
   background-color: $primary-black;
-  padding: 10px;
+  padding: 10px 0px;
   margin: 0;
 
   a {
@@ -225,6 +225,7 @@ body > div.container > nav > div.navbar-header {
 body > div.container > nav > div.navbar-header > button {
   float: none;
   margin: 0px;
+  width: 100%;
 }
 
 body > div.container > nav > div.navbar-header > button > p {
