@@ -5,7 +5,7 @@
 <nav class="navbar no-border">
   <div class="navbar-container">
     <div class="navbar-button">
-      <%= link_to "Random Trash", Listing.order("RANDOM()").first, class: "navbar-btn" %>
+      <%= link_to "Random Trash", Listing.find_by_id(rand(Listing.count)), class: "navbar-btn" %>
       <i class="fa fa-heart"></i>
     </div>
     <div class="navbar-search">

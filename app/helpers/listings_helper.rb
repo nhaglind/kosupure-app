@@ -29,9 +29,4 @@ module ListingsHelper
 		end
 	end
 
-  def random_listing_link
-    random_listing = Listing.order("RANDOM()").first
-    link_to "Random Listing", random_listing  
-  end
-
 end
