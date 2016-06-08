@@ -5,7 +5,8 @@
 <nav class="navbar no-border">
   <div class="navbar-container">
     <div class="navbar-button">
-      <a href="#" class="navbar-btn"><i class="fa fa-heart"></i>Feeling lucky punk?</a>
+      <%= link_to "Random Trash", Listing.order("RANDOM()").first, class: "navbar-btn" %>
+      <i class="fa fa-heart"></i>
     </div>
     <div class="navbar-search">
       <%= form_tag(listings_path , method: "get", class: "search-form") do %>
