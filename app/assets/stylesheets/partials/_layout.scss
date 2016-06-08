@@ -17,11 +17,15 @@
   }
 }
 
+.container .jumbotron, .container-fluid .jumbotron {
+  border-radius: 0px;
+}
+
 .jumbotron {
-  background-image: url("https://www.dropbox.com/s/bwh8hb5hm9e9rh8/anime_banner.jpg?raw=1");
+  background-image: url("https://www.dropbox.com/s/tgac0faw2z25yw1/banner.png?raw=1");
   background-size: cover;
-  border-radius: 0;
   margin-bottom: 0;
+  border-radius: 0;
   background-repeat: no-repeat;
 
   h2 {
