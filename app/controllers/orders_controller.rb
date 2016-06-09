@@ -22,7 +22,11 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params.merge(address: stripe_params["stripeShippingAddressLine1"],
                                           city: stripe_params["stripeShippingAddressCity"],
-                                          state: stripe_params["stripeShippingAddressState"]))
+                                          state: stripe_params["stripeShippingAddressState"],
+                                          zipcode: stripe_params["stripeShippingAddressZip"],
+                                          shipping_name: stripe_params["stripeShippingName"]
+                                          )
+                      )
     @listing = Listing.find(params[:listing_id])
     @seller = @listing.user
     @amount = (@listing.price * 100 * @order.ordered_amount).floor
@@ -74,7 +78,7 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def stripe_params
-      params.permit(:stripeShippingAddressLine1, :stripeShippingAddressState, :stripeShippingAddressCity)
+      params.permit(:stripeShippingAddressLine1, :stripeShippingAddressState, :stripeShippingAddressCity, :stripeShippingName, :stripeShippingAddressZip)
     end
 
     def order_params

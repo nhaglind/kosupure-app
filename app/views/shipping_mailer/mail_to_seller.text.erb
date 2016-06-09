@@ -1,2 +1,8 @@
-Hi <%= @user.name %>
-Sample mail sent using smtp.
+Hello <%= @order.seller.name %>,
+
+<%= @order.ordered_amount %> of your item <%= @order.listing.name %> <%= @order.ordered_amount > 1? "have" : "has" %> been purchased for <%= @amount %> by <%= @order.buyer.name %>!
+
+Shipping details below:
+<%= @order.shipping_name %>
+<%= @order.address %>
+<%= "#{@order.city}, #{@order.state} #{@order.zipcode}" %>

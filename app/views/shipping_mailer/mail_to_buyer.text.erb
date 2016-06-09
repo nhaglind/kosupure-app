@@ -1,2 +1,8 @@
-Hi <%= @user.name %>
-Sample mail sent using smtp.
+Hello <%= @order.buyer.name %>,
+
+Thanks for shopping with Kosupure! Here's what you bought:
+
+<%= @order.listing.name %> 
+Price: <%= @amount %>
+Quantity: <%= @order.ordered_amount %> 
+Seller: <%= @order.seller.name %>

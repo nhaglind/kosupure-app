@@ -4,9 +4,14 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Hi <%= @user.name %></h1>
-    <p>
-      Sample mail sent using smtp.
-    </p>
+  	<h3> Hello <%= @order.buyer.name %>, </h3>
+    <p> Thanks for shopping with Kosupure! Here's what you bought: </p>
+
+			<p><%= image_tag @order.listing.images[0].url if @order.listing.images[0].present? %></p>
+			<li> Item: <%= @order.listing.name %> </li>
+			<li> Price: <%= @amount %> </li>
+			<li> Quantity: <%= @order.ordered_amount %> </li>
+			<li> Seller: <%= @order.seller.name %> </li>
+		<p> Check out your  <%= link_to "order history", purchases_path %>! </p>
   </body>
 </html>

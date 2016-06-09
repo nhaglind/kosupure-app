@@ -4,14 +4,14 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Hi <%= @user.name %></h1>
-    <p>
-      Shipping details below:
-
-      <%= @buyer.name %>
-      <%= @order.address %>
-      <%= @order.city %> <%= @order.state %>
-
-    </p>
+    <h3>Hello, <%= @order.seller.name %>!</h3>
+    <p> <%= image_tag @order.listing.images[0].url if @order.listing.images[0].present? %>
+    <p> <%= @order.ordered_amount %> of your item <%= @order.listing.name %> <%= @order.ordered_amount > 1? "have" : "has" %> been purchased for <%= @amount %> by <%= @order.buyer.name %>!</p>
+    <p>Shipping details below:</p>
+    <p><%= @order.shipping_name %></p>
+    <p><%= @order.address %></p>
+    <p><%= "#{@order.city}, #{@order.state} #{@order.zipcode}" %></p>
+    <p></p>
+    <p> Check out your <%= link_to "sales history", sales_path %> </p>
   </body>
 </html>
