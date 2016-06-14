@@ -1,0 +1,8 @@
+Welcome to Kosupure.io, <%= @email %>
+===============================================
+ 
+You have successfully signed up for Kosupure.io!
+ 
+You can confirm your account email through the link below: <%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %>
+ 
+Thanks for joining and have a great day!

@@ -79,7 +79,6 @@ ActiveRecord::Schema.define(version: 20160608234224) do
     t.integer  "buyer_id"
     t.integer  "seller_id"
     t.integer  "ordered_amount"
-    t.json     "images"
     t.string   "zipcode"
     t.string   "shipping_name"
   end
@@ -103,7 +102,6 @@ ActiveRecord::Schema.define(version: 20160608234224) do
     t.string   "provider"
     t.string   "uid"
     t.string   "access_code"
-    t.integer  "total_feedback"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
