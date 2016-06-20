@@ -2,8 +2,9 @@ class Listing < ActiveRecord::Base
 
   mount_uploaders :images, ImageUploader
 
-  validates :name, :description, :price, presence: true
+  validates :name, :description, :price, :category_id, presence: true
   validates :price, :quantity, numericality: { greater_than: 0 }
+  validates_length_of :images, maximum: 5, too_long: ": maximum number of images is 5"
 
   belongs_to :user
   belongs_to :category
