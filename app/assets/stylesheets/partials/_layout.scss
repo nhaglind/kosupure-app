@@ -9,7 +9,7 @@
   max-width: 1050px;
   margin: auto;
   margin: 28px auto 20px;
-  border-radius: 5px;
+  border-radius: 3px;
   padding: 28px 15px;
   position: relative;
   @media (max-width: 480px) {
@@ -43,7 +43,7 @@
 }
 
 .panel {
-  border-radius: 5px;
+  border-radius: 3px;
   border: 1px solid rgba(49, 41, 78, 0.14);
   background-color: $primary-white;
   box-shadow: none;
@@ -86,7 +86,7 @@
 .money {
   width: 100%;
   height: auto;
-  border-radius: 5px;
+  border-radius: 3px;
 }
 
 .cta {
@@ -100,7 +100,7 @@
 
 .user-entry {
   background-color: $primary-pink;
-  border-radius: 5px;
+  border-radius: 3px;
   padding: 10px;
   margin-bottom: 10px;
 
