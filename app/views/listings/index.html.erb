@@ -68,11 +68,15 @@
                 <div class="thumbnail">
                   <%= listing_link(listing) %>
                 </div>
-                <div class="card-block">
-                  <h4 class="card-title"><%= link_to listing.name, listing %></h4>
-                  <p class="card-text"><%= number_to_currency(listing.price, locale: "en") %></p>
-                  <p class="card-text"><%= link_to "Sold by #{listing.user.name}", listings_path(named: listing.user) %></p>
+                <div class="row">
+                <div class="col-xs-6">
+                  <h5><%= link_to listing.name, listing %></h5>
                 </div>
+                <div class="col-xs-6">
+                  <h5 class="price"><%= number_to_currency(listing.price, locale: "en") %></h5>
+                </div>
+                </div>
+                  <p><%= link_to "Sold by #{listing.user.name}", listings_path(named: listing.user) %></p>
               </div>
             </div>
           <% end %>
