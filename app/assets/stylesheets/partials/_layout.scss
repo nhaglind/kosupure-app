@@ -43,8 +43,8 @@
 }
 
 .panel {
-  border-radius: 0;
-  border: 0;
+  border-radius: 5px;
+  border: 1px solid rgba(49, 41, 78, 0.14);
   background-color: $primary-white;
   box-shadow: none;
 }
