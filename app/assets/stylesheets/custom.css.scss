@@ -12,6 +12,10 @@ body {
   h1 {
     color: $primary-pink;
   }
+
+  h2 {
+    margin-top: 10px;
+  }
 }
 
 ul {
@@ -240,4 +244,19 @@ body > div.container > nav > div.navbar-header > button > p {
   padding: 20px;
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
+}
+
+.show-item {
+  background-color: $primary-white;
+  color: $primary-grey;
+  margin: 5px;
+  h2 {
+  }
+  .price {
+    font-style: italic;
+  }
+}
+
+.no-padding {
+  padding: 0px;
 }
