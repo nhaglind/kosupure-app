@@ -124,11 +124,14 @@
   background-color: $primary-pink;
   border-radius: 3px 3px 0px 0px;
   padding: 10px;
-  margin-bottom: 5px;
+  margin-bottom: 0px;
 
   h2 {
     color: $primary-white;
     margin-top: 10px;
+  }
+  p {
+    padding: 10px;
   }
 }
 
