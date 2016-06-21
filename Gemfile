@@ -9,10 +9,9 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'bootstrap-sass', '~> 3.3.6'
-gem 'scss_lint', require: false
 
 # active admin
-gem 'activeadmin', github: 'activeadmin'
+# gem 'activeadmin', github: 'activeadmin'
 
 # pagination
 gem 'will_paginate', '~> 3.1.0'
@@ -35,7 +34,6 @@ gem 'stripe'
 # database
 gem 'pg'
 
-
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
@@ -44,6 +42,7 @@ group :development do
   gem 'guard-livereload'
   gem 'guard-rails'
   gem 'rack-livereload'
+  gem 'scss_lint', require: false
 end
 
 group :development, :test do
