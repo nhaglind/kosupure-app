@@ -45,7 +45,8 @@ section {
 }
 
 thead {
-  background-color: rgba(244, 146, 194, 0.18);
+  background-color: $primary-pink;
+  color: $primary-white;
 
   th {
     font-weight: 100;
@@ -114,7 +115,6 @@ footer {
   width: 100%;
   background-color: $primary-white;
   border: 0;
-  padding: 0;
 
   img {
     float: left;
@@ -125,6 +125,7 @@ footer {
 
   .list-group-image {
     margin-right: 10px;
+    padding: 10px;
   }
 }
 
@@ -135,7 +136,6 @@ footer {
 
 .item.list-group-item .caption {
   padding: 10px;
-  background-image: url("https://www.dropbox.com/s/ko8b8hscbq9i6fd/pink_rice.png?raw=1");
   min-height: 200px;
 }
 
