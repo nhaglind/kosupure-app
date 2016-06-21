@@ -54,7 +54,7 @@
 
 .panel {
   border-radius: 3px;
-  border: 1px solid rgba(49, 41, 78, 0.14);
+  border: none;
   background-color: $primary-white;
   box-shadow: none;
 }
@@ -116,7 +116,28 @@
 
   h2 {
     color: $primary-white;
+    margin-top: 10px;
   }
+}
+
+.item-detail {
+  background-color: $primary-pink;
+  border-radius: 3px 3px 0px 0px;
+  padding: 10px;
+  margin-bottom: 0px;
+
+  h2 {
+    color: $primary-white;
+    margin-top: 10px;
+  }
+  p {
+    padding: 10px;
+  }
+}
+
+.description {
+  padding-top: 20px;
+  border: 10px solid;
 }
 
 @media screen and (max-width: 480px) {
