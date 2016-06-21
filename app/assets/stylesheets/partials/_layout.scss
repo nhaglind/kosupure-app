@@ -54,7 +54,7 @@
 
 .panel {
   border-radius: 3px;
-  border: 1px solid rgba(49, 41, 78, 0.14);
+  border: none;
   background-color: $primary-white;
   box-shadow: none;
 }
@@ -133,6 +133,11 @@
   p {
     padding: 10px;
   }
+}
+
+.description {
+  padding-top: 20px;
+  border: 10px solid;
 }
 
 @media screen and (max-width: 480px) {
