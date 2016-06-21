@@ -67,7 +67,6 @@ footer {
   background-color: $primary-pink;
   display: block;
   padding: 30px;
-  text-transform: uppercase;
   font-size: 1.5em;
   font-family: $font-content;
 }
@@ -234,7 +233,7 @@ body > div.container > nav > div.navbar-header > button > p {
   margin: 0px;
 }
 
-.gray-container {
+.bottom-nav-container {
   width: 100%;
   background-color: $primary-black;
   margin: 0px;
