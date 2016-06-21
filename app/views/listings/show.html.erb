@@ -17,8 +17,8 @@
           </div>
         </div>
         <div class="col-md-5 description">
+          <p class="quantity">Quantity Remaining: <%= @listing.quantity %></p>
           <p class="price"><%= number_to_currency(@listing.price) %></p>
-          <p>Quantity: <%= @listing.quantity %></p>
           <p>Seller: <%= @listing.user.name %></p>
           <p>Decription: <%= @listing.description %></p>
         </div>
