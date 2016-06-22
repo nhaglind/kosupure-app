@@ -5,4 +5,8 @@ class PagesController < ApplicationController
   def contact
   end
 
+  def letsencrypt
+    # use your code here, not mine
+    render text: params[:id]
+  end
 end
