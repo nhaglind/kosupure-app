@@ -13,7 +13,7 @@ class Listing < ActiveRecord::Base
   scope :no_zeroes, -> { where("quantity > 0") }
   scope :keyword, -> (keyword) { where("name ILIKE ? OR description ILIKE ?", "%#{keyword}%", "%#{keyword}%") }
   scope :category, -> (category) { where category_id: category }
-  scope :ordering, -> (order = "created_at DESC") { order(order) }
+  scope :ordering, -> (order) { reorder(order) }
   scope :named, -> (name) { where(user: name) }
   # scope :paging, ->  (page) { paginate(:page => page, :per_page => 12) }
 

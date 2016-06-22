@@ -10,7 +10,7 @@ class ListingsController < ApplicationController
   # GET /listings
   # GET /listings.json
   def index
-    @listings = Listing.all.no_zeroes
+    @listings = Listing.all.no_zeroes.order("created_at DESC")
     filtering_params(params).each do |key, value|
       @listings = @listings.public_send(key, value) if value.present?
     end
