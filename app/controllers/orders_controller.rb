@@ -57,11 +57,13 @@ class OrdersController < ApplicationController
           redirect_to new_charge_path
     end
 
-    ShippingMailer.mail_to_buyer(@order).deliver
-    ShippingMailer.mail_to_seller(@order).deliver
+
 
     respond_to do |format|
       if @order.save
+        ShippingMailer.mail_to_buyer(@order).deliver
+        ShippingMailer.mail_to_seller(@order).deliver
+        @order.decrease_quantity
         format.html { redirect_to root_url }
         format.json { render action: 'show', status: :created, location: @order }
 
@@ -70,7 +72,7 @@ class OrdersController < ApplicationController
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
     end
-    @order.decrease_quantity
+    
   end
 
   private
