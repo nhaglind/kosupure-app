@@ -7,6 +7,6 @@ class PagesController < ApplicationController
 
   def letsencrypt
     # use your code here, not mine
-    render text: params[:id]
+    render text: "#{params[:id]}."
   end
 end
