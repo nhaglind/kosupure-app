@@ -11,8 +11,8 @@ Rails.application.routes.draw do
   get 'seller' => "listings#seller"
   get 'sales' => "orders#sales"
   get 'purchases' => "orders#purchases"
-  get '/.well-known/acme-challenge/:id' => 'pages#letsencrypt'
-  
+
+
   root 'listings#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
