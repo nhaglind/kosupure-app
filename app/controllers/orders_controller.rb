@@ -57,6 +57,9 @@ class OrdersController < ApplicationController
           redirect_to new_charge_path
     end
 
+    ShippingMailer.mail_to_buyer(@order).deliver
+    ShippingMailer.mail_to_seller(@order).deliver
+
     respond_to do |format|
       if @order.save
         format.html { redirect_to root_url }
