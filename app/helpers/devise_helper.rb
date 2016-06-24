@@ -17,7 +17,11 @@ module DeviseHelper
   end
 
   def name_placeholder
-    ["Anime", "Names", "Here"].sample
+    ["Arya Stark", "Dr. Mundo", "Cpt. Jean-Luc Picard", "Kakarrot", "Sonic deHedgehog"].sample
+  end
+
+  def email_placeholder
+    ["Mrs_Astronaut_Mike_Dexter@nbc.com", "capedcrusader@gotham.gov", "whatshesaid@dundermifflin.com "].sample
   end
 
 end
