@@ -1,4 +1,5 @@
 @import "modules/colors";
+@import "partials/typography";
 
 .container {
   width: 100%;
@@ -38,14 +39,27 @@
   border-radius: 0;
   background-repeat: no-repeat;
 
+  a {
+    background-color: $primary-pink;
+    color: $primary-white;
+    font-weight: 100;
+    padding: 10px;
+    border-radius: 3px;
+    &:hover {
+      background-color: #94405d;
+    }
+  }
+
   h2 {
     color: $primary-purple;
   }
 
   h3 {
-    color: $primary-pink;
+    color: $primary-purple;
+    font-style: italic;
   }
 }
+
 
 .accepts__trades {
   background-image: url("https://www.dropbox.com/s/hr04f58uh8pcowb/accept_trades.jpg?raw=1");
@@ -143,6 +157,12 @@
 @media screen and (max-width: 480px) {
   .user-entry {
     margin-top: 5px;
+  }
+
+  .jumbotron {
+    a {
+      font-size: .7em;
+    }
   }
 }
 
