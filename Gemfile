@@ -21,7 +21,7 @@ gem 'will_paginate-bootstrap'
 gem "carrierwave", github: "carrierwaveuploader/carrierwave"
 gem "mini_magick"
 gem "carrierwave-dropbox"
-gem "file_validators"
+
 
 # secrets
 gem "figaro"
