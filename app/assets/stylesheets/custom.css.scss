@@ -265,3 +265,41 @@ body > div.container > nav > div.navbar-header > button > p {
 .no-padding {
   padding: 0px;
 }
+
+.cr {
+  width: 200px;
+  padding: 16px;
+  position: absolute;
+  text-align: center;
+  color: #f0f0f0;
+}
+
+.cr-sticky {
+  position: fixed;
+}
+
+/* Positions */
+
+.cr-top    { top: 25px; }
+.cr-bottom { bottom: 25px; }
+.cr-left   { left: -50px; }
+.cr-right  { right: -50px; }
+
+/* Rotations */
+
+.cr-top.cr-left,
+.cr-bottom.cr-right {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.cr-top.cr-right,
+.cr-bottom.cr-left {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+/* Colors */
+
+.cr-pink     { background-color: $primary-pink; }
+
