@@ -45,6 +45,7 @@ group :development do
   gem 'guard-rails'
   gem 'rack-livereload'
   gem 'scss_lint', require: false
+  gem 'letter_opener'
 end
 
 group :development, :test do
