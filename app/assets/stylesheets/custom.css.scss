@@ -80,9 +80,17 @@ footer {
 }
 
 .seller_hero {
-  background-image: url("https://www.dropbox.com/s/l6lv2bdwm0x1yqw/anime_banner.jpg?raw=1");
+  background-image: url("https://www.dropbox.com/s/75vcvqt9vy8qvu8/seller-banner.png?raw=1");
   width: 100%;
+  background-size: cover;
   height: 200px;
+  h2 {
+    padding: 10px;
+    display: inline-flex;
+    border-radius: 3px;
+    color: white;
+    background-color: $primary-pink;
+  }
 }
 
 .caption {
