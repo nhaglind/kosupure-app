@@ -1,4 +1,7 @@
-Hello <%= @order.seller.name %>,
+Kosupure.io | The Cosplay Marketplace
+---
+
+Nice work, <%= @order.seller.name %>!
 
 <%= @order.ordered_amount %> of your item <%= @order.listing.name %> <%= @order.ordered_amount > 1? "have" : "has" %> been purchased for <%= @amount %> by <%= @order.buyer.name %>!
 
@@ -6,3 +9,8 @@ Shipping details below:
 <%= @order.shipping_name %>
 <%= @order.address %>
 <%= "#{@order.city}, #{@order.state} #{@order.zipcode}" %>
+
+---
+If you were not involved in this transaction, please contact us via email at kosupureio@gmail.com
+
+Copyright © 2016 Kosupure
