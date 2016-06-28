@@ -3,7 +3,7 @@ module ListingsHelper
 		if listing.images.any?
 			link_to image_tag(listing.images[0].url), listing
 		else
-			link_to image_tag("default.jpg"), listing
+			link_to image_tag("default.png"), listing
 		end
 	end
 
