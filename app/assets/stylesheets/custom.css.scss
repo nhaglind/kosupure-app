@@ -93,6 +93,21 @@ footer {
   }
 }
 
+.useragreement_hero {
+  background-image: url("https://www.dropbox.com/s/24drzl0io9uo722/terms-of-wright.png?raw=1");
+  width: 100%;
+  background-size: cover;
+  background-position-y: 15%;
+  height: 300px;
+  h2 {
+    padding: 10px;
+    display: inline-flex;
+    border-radius: 3px;
+    color: white;
+    background-color: $primary-pink;
+  }
+}
+
 .caption {
   h3 {
     font-size: 17px;
@@ -272,6 +287,18 @@ body > div.container > nav > div.navbar-header > button > p {
 
 .no-padding {
   padding: 0px;
+}
+
+.nutshell {
+  border-radius: 3px;
+  margin-top: 20px;
+  padding: 10px 10px 10px 10px;
+  color: $primary-white;
+  background-color: $primary-pink;
+  h3 {
+    text-align: center;
+    padding-bottom: 10px;
+  }
 }
 
 .cr {

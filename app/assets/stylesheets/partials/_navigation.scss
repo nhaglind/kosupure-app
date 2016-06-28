@@ -12,6 +12,15 @@
   border: 0;
 }
 
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #f48fb1;
+}
+
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: #fff;
+}
+
 .navbar-default .navbar-brand {
   font-family: $font-logo;
   font-weight: 400;
