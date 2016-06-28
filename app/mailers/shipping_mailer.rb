@@ -14,4 +14,9 @@ class ShippingMailer < ApplicationMailer
 
 		mail(to: @order.seller.email, subject: "Your #{@order.listing.name} has been sold!")
 	end
+
+	def mail_onboard(user)
+		@user = user
+		mail(to: @user.email, subject: "Welcome to Kosupure!")
+	end
 end

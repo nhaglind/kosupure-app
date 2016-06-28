@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:stripe_connect]
 
+  after_create :send_welcome_email
+
   validates :name, presence: true
 
   has_many :listings, dependent: :destroy
@@ -22,5 +24,9 @@ class User < ActiveRecord::Base
 
   def to_param
     [id, name.parameterize].join("-")
+  end
+
+  def send_welcome_email
+    ShippingMailer.mail_onboard(self).deliver
   end
 end
