@@ -1,0 +1,34 @@
+@import "colors";
+
+.cr {
+  width: 200px;
+  padding: 16px;
+  position: absolute;
+  text-align: center;
+  color: #f0f0f0;
+}
+
+.cr-sticky {
+  position: fixed;
+}
+
+.cr-top    { top: 25px; }
+.cr-bottom { bottom: 25px; }
+.cr-left   { left: -50px; }
+.cr-right  { right: -50px; }
+
+.cr-top.cr-left,
+.cr-bottom.cr-right {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.cr-top.cr-right,
+.cr-bottom.cr-left {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.cr-pink { 
+  background-color: $primary-pink;
+}

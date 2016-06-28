@@ -80,7 +80,7 @@ footer {
 }
 
 .seller_hero {
-  background-image: url("https://www.dropbox.com/s/75vcvqt9vy8qvu8/seller-banner.png?raw=1");
+  background-image: url("https://www.dropbox.com/s/ssqcytnmhp7ccl0/seller-banner.png?raw=1");
   width: 100%;
   background-size: cover;
   height: 200px;
@@ -94,7 +94,7 @@ footer {
 }
 
 .useragreement_hero {
-  background-image: url("https://www.dropbox.com/s/24drzl0io9uo722/terms-of-wright.png?raw=1");
+  background-image: url("https://www.dropbox.com/s/zdhgecq5dst9u7g/terms-of-wright.png?raw=1");
   width: 100%;
   background-size: cover;
   background-position-y: 15%;
@@ -300,41 +300,3 @@ body > div.container > nav > div.navbar-header > button > p {
     padding-bottom: 10px;
   }
 }
-
-.cr {
-  width: 200px;
-  padding: 16px;
-  position: absolute;
-  text-align: center;
-  color: #f0f0f0;
-}
-
-.cr-sticky {
-  position: fixed;
-}
-
-/* Positions */
-
-.cr-top    { top: 25px; }
-.cr-bottom { bottom: 25px; }
-.cr-left   { left: -50px; }
-.cr-right  { right: -50px; }
-
-/* Rotations */
-
-.cr-top.cr-left,
-.cr-bottom.cr-right {
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
-}
-
-.cr-top.cr-right,
-.cr-bottom.cr-left {
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
-}
-
-/* Colors */
-
-.cr-pink     { background-color: $primary-pink; }
-
