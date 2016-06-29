@@ -3,7 +3,7 @@ module OrdersHelper
 		if listing.images.any?
 			image_tag listing.images[0].url
 		else
-			image_tag "default.jpg"
+			image_tag "default.png"
 		end
 	end
 
@@ -12,10 +12,10 @@ module OrdersHelper
 			if order.listing.images.any?
 				image_tag order.listing.images[0].to_s
 			else
-				image_tag "default.jpg"
+				image_tag "default.png"
 			end
 		else
-				image_tag "default.jpg"
+				image_tag "default.png"
 		end
 	end
 end

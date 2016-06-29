@@ -6,8 +6,12 @@
       </header>
       <div class="row show-item">
         <div class="col-md-7 no-padding">
-          <% @listing.images.each_index do |i| %>
-            <%= image_tag @listing.images[i].url, class: "img-responsive" %>
+          <% if @listing.images.any? %>
+            <% @listing.images.each_index do |i| %>
+              <%= image_tag(@listing.images[i].url, class: "img-responsive") %>
+              <% end %>
+          <% else %>
+            <%= image_tag("default.png", class: "img-responsive") %>
           <% end %>
           <div class="flex-menu seller">
             <%= link_to "Buy It Now", new_listing_order_path(@listing), class: "btn btn-primary green", data: { no_turbolink: true}  %>
