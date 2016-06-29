@@ -40,7 +40,7 @@ class ListingsController < ApplicationController
     if current_user.publishable_key
       @listing = Listing.new
     else
-      redirect_to user_omniauth_authorize_path(:stripe_connect)
+      redirect_to user_stripe_connect_omniauth_authorize_path
     end
   end
 
