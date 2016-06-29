@@ -194,6 +194,10 @@ footer {
     text-overflow: ellipsis;
   }
 
+  .thumbnail {
+    background-color: rgba(255, 255, 255, 0);
+  }
+
   a {
     color: $primary-grey;
 
@@ -209,8 +213,10 @@ footer {
   }
 
   img {
-    width: 100%;
+    max-height: 500px;
     height: auto;
+
+    width: auto;
     border-radius: 3px;
   }
 
