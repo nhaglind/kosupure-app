@@ -33,7 +33,7 @@
                 </div>
                 <div class='field half last'>
                   <%= f.label :price, "Price ($)" %>
-                  <%= f.text_field :price%>
+                  <%= f.text_field :price, placeholder: "Include shipping"%>
                 </div>
                 <div class='field half tnb'>
                   <%= f.label :quantity, "Quantity"%>
@@ -67,7 +67,7 @@
                 </div>
                 <div class="field tnb">
                   <%= f.label :description %>
-                  <%= f.text_area :description %>
+                  <%= f.text_area :description, placeholder: "Describe your product as completely as possible, including all shipping restrictions you may have." %>
                 </div>
                 <div class='field tnb'>
                   <%= f.label :trade, "Accepts Trades?", class: "checkbox__trades" %>
