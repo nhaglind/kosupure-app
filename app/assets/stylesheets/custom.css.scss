@@ -151,11 +151,15 @@ footer {
 
   img {
     float: left;
-    height: 200px;
+    height: auto;
     width: 300px;
     padding: 0 10px 0 0;
   }
-
+  
+  .thumbnail {
+    border: none;
+  }
+  
   .list-group-image {
     margin-right: 10px;
     padding: 10px;
@@ -277,6 +281,7 @@ body > div.container > nav > div.navbar-header > button > p {
   background-color: $primary-white;
   color: $primary-grey;
   margin: 0px;
+  padding: 10px;
   .price {
     font-style: italic;
   }
@@ -299,4 +304,8 @@ body > div.container > nav > div.navbar-header > button > p {
     text-align: center;
     padding-bottom: 10px;
   }
+}
+
+.img-responsive {
+  width: 100%;
 }
