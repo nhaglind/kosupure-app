@@ -88,22 +88,22 @@ Rails.application.configure do
 
   config.action_mailer.smtp_settings = {
 
-    :address => "smtp.gmail.com",
-    :port => 587,
-    :authentication => "plain",
-    :enable_starttls_auto => true,
-    :user_name => ENV["gmail_username"],
-    :password => ENV["gmail_password"]
+    # :address => "smtp.gmail.com",
+    # :port => 587,
+    # :authentication => "plain",
+    # :enable_starttls_auto => true,
+    # :user_name => ENV["gmail_username"],
+    # :password => ENV["gmail_password"]
 
-    # address: "smtp.gmail.com",
-    # port: 587,
-    # domain: ENV["gmail_domain"],
-    # authentication: "plain",
-    # enable_starttls_auto: true,
-    # user_name: ENV["gmail_username"],
-    # password: ENV["gmail_password"],
-    # :openssl_verify_mode => 'none'
-
+    address: "smtp.gmail.com",
+    port: 587,
+    domain: ENV["gmail_domain"],
+    authentication: "plain",
+    enable_starttls_auto: true,
+    user_name: ENV["gmail_username"],
+    password: ENV["gmail_password"],
+    :openssl_verify_mode => 'none'
+    
   }
 
 end
