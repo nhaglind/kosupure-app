@@ -9,10 +9,12 @@
           <table id="table" class="table table-hover">
             <thead>
               <tr>
-                <th>ID</th>
+                <th>Item ID</th>
                 <th>Name</th>
                 <th>Link</th>
                 <th>Price</th>
+                <th>Qty. Purchased</th>
+                <th>Total Paid</th>
                 <th>Customer</th>
                 <th>Date Sold</th>
               </tr>
@@ -20,11 +22,13 @@
             <tbody>
               <tr>
                 <% @orders.each do |order| %>
-                  <td data-title="ID">1</td>
-                  <td data-title="Name"><%= order.listing.name %></td>
-                  <td data-title="Link"><a href="#">Link</a></td>
-                  <td data-title="Price"><%= number_to_currency(order.listing.price) %></td>
-                  <td data-title="Customer"><%= order.buyer.name %></td>
+                  <td data-title="ID"><%= order.listing_id %></td>
+                  <td data-title="Name"><%= order.listing_name %></td>
+                  <td data-title="Link"><%= order.listing.nil? ? "Listing Deleted" : link_to("Link", listing_url(id: order.listing_id)) %></td>
+                  <td data-title="Price"><%= number_to_currency(order.listing_price) %></td>
+                  <td data-title="Qty"><%= order.ordered_amount %></td>
+                  <td data-title="Total Paid"><%= number_to_currency(order.total / 100) %></td>
+                  <td data-title="Customer"><%= order.buyer_name %></td>
                   <td data-title="Date Sold"><%= order.created_at.strftime("%B %-d, %Y") %></td>
                 </tr>
               <% end %>
