@@ -6,7 +6,6 @@
   <div class="navbar-container">
     <div class="navbar-button">
       <%= link_to "Random", Listing.find_by_id(rand(Listing.count)), class: "navbar-btn" %>
-      <i class="fa fa-heart"></i>
     </div>
     <div class="navbar-search">
       <%= form_tag(listings_path , method: "get", class: "search-form") do %>
